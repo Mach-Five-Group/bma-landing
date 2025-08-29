@@ -225,7 +225,7 @@
         }
 
         .hero-logo {
-            max-width: 400px;
+            max-width: 600px;
             width: 100%;
             height: auto;
             filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.4));
@@ -321,6 +321,397 @@
             margin-top: 0.5rem;
         }
 
+        /* Games Section */
+        .games-section {
+            padding: 8rem 2rem;
+            background: var(--bma-gray-50);
+        }
+
+        .games-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 4rem;
+            justify-content: center;
+        }
+
+        .game-tab {
+            background: var(--bma-white);
+            border: 2px solid var(--bma-gray-200);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            min-width: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(46, 139, 87, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .game-tab:hover::before {
+            left: 100%;
+        }
+
+        .game-tab:hover {
+            border-color: var(--bma-green);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .game-tab.active {
+            border-color: var(--bma-green);
+            background: linear-gradient(135deg, var(--bma-green), var(--bma-yellow));
+            color: var(--bma-white);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(46, 139, 87, 0.3);
+        }
+
+        .game-tab.active .tab-category,
+        .game-tab.active .tab-title {
+            color: var(--bma-white);
+        }
+
+        .tab-category {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--bma-gray-600);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tab-title {
+            display: block;
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--bma-gray-900);
+        }
+
+        .game-content-container {
+            position: relative;
+        }
+
+        .game-content {
+            display: none;
+        }
+
+        .game-content.active {
+            display: block;
+        }
+
+        .game-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .game-image {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .game-screenshot {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .game-image:hover .game-screenshot {
+            transform: scale(1.05);
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .play-button:hover {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .coming-soon-placeholder {
+            height: 400px;
+            background: linear-gradient(135deg, var(--bma-gray-100) 0%, var(--bma-gray-200) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .coming-soon-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.7;
+        }
+
+        .coming-soon-placeholder h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--bma-gray-700);
+            margin-bottom: 0.5rem;
+        }
+
+        .coming-soon-placeholder p {
+            color: var(--bma-gray-600);
+            margin: 0;
+        }
+
+        .game-info {
+            padding: 2rem 0;
+        }
+
+        .game-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .game-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--bma-gray-900);
+            margin: 0;
+        }
+
+        .game-status {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .game-status.live {
+            background: var(--bma-green);
+            color: var(--bma-white);
+        }
+
+        .game-status.coming-soon {
+            background: var(--bma-yellow);
+            color: var(--bma-black);
+        }
+
+        .game-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--bma-gray-600);
+            margin-bottom: 2rem;
+        }
+
+        .game-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .feature-tag {
+            background: var(--bma-gray-100);
+            color: var(--bma-gray-700);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border: 1px solid var(--bma-gray-200);
+        }
+
+        .game-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-game-primary {
+            background: var(--bma-green);
+            color: var(--bma-white);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-game-primary:hover {
+            background: #236B43;
+            transform: translateY(-2px);
+        }
+
+        .btn-game-secondary {
+            background: transparent;
+            color: var(--bma-green);
+            border: 2px solid var(--bma-green);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-game-secondary:hover {
+            background: var(--bma-green);
+            color: var(--bma-white);
+            transform: translateY(-2px);
+        }
+
+        /* Betting Interface Mockup */
+        .betting-interface {
+            width: 100%;
+            height: 400px;
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .betting-header {
+            background: #2a2a2a;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .betting-logo {
+            color: var(--bma-yellow);
+            font-weight: 800;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        .betting-nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-item {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #ccc;
+        }
+
+        .nav-item.active {
+            background: var(--bma-green);
+            color: white;
+        }
+
+        .betting-content {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        .game-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            background: #2a2a2a;
+            border-radius: 8px;
+            border-left: 3px solid var(--bma-green);
+        }
+
+        .team-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .team {
+            color: white;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .time {
+            color: #888;
+            font-size: 0.8rem;
+            margin-top: 0.2rem;
+        }
+
+        .odds {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .odd-btn {
+            background: #333;
+            color: white;
+            padding: 0.5rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid #444;
+        }
+
+        .odd-btn:hover {
+            background: var(--bma-green);
+            border-color: var(--bma-green);
+        }
+
+        .betting-footer {
+            background: #2a2a2a;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #333;
+        }
+
+        .live-indicator {
+            color: var(--bma-green);
+            font-weight: 600;
+            font-size: 0.9rem;
+            animation: pulse 2s infinite;
+        }
+
+        .tournament-info {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
         /* Solutions Section */
         .solutions {
             padding: 8rem 2rem;
@@ -360,19 +751,22 @@
             padding: 3rem;
             border-radius: 16px;
             border: 1px solid var(--bma-gray-200);
-            transition: all 0.3s;
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .solution-card:hover {
             border-color: var(--bma-green);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transform: translateY(-5px);
         }
 
         .solution-header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             margin-bottom: 1.5rem;
         }
 
@@ -380,26 +774,32 @@
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--bma-gray-900);
+            margin: 0;
+            flex: 1;
         }
 
         .solution-badge {
             background: var(--bma-green);
-            color: white;
-            padding: 0.25rem 0.75rem;
+            color: var(--bma-white);
+            padding: 0.4rem 0.8rem;
             border-radius: 20px;
-            font-size: 0.875rem;
+            font-size: 0.8rem;
             font-weight: 600;
+            white-space: nowrap;
+            margin-left: 1rem;
         }
 
         .solution-card p {
             color: var(--bma-gray-600);
             margin-bottom: 2rem;
             line-height: 1.7;
+            flex-grow: 1;
         }
 
         .solution-features {
             list-style: none;
             margin-bottom: 2rem;
+            padding: 0;
         }
 
         .solution-features li {
@@ -407,6 +807,7 @@
             position: relative;
             padding-left: 1.5rem;
             color: var(--bma-gray-600);
+            line-height: 1.5;
         }
 
         .solution-features li::before {
@@ -424,6 +825,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+            margin-top: auto;
         }
 
         .solution-cta:hover {
@@ -608,6 +1010,215 @@
             color: rgba(255, 255, 255, 0.6);
         }
 
+        /* Contact Popup */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            background: var(--bma-white);
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .popup-overlay.active .popup-container {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .popup-header {
+            background: var(--bma-gradient-primary, linear-gradient(135deg, var(--bma-green) 0%, var(--bma-yellow) 100%));
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--bma-black);
+            font-size: 1.5rem;
+            transition: all 0.2s ease;
+            font-weight: bold;
+        }
+
+        .popup-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .popup-title {
+            color: var(--bma-black);
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        .popup-subtitle {
+            color: rgba(0, 0, 0, 0.7);
+            margin: 0.5rem 0 0 0;
+            font-weight: 500;
+        }
+
+        .popup-content {
+            padding: 0;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        /* Tab System */
+        .contact-tabs {
+            display: flex;
+            background: var(--bma-gray-50);
+            border-bottom: 1px solid var(--bma-gray-200);
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--bma-gray-600);
+            transition: all 0.2s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab-button:hover {
+            background: var(--bma-gray-100);
+            color: var(--bma-gray-900);
+        }
+
+        .tab-button.active {
+            background: var(--bma-white);
+            color: var(--bma-green);
+            border-bottom-color: var(--bma-green);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 2rem;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Form Styling */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: var(--bma-gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--bma-gray-200);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            background: var(--bma-white);
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--bma-green);
+            box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-submit {
+            background: var(--bma-green);
+            color: var(--bma-white);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s ease;
+        }
+
+        .form-submit:hover {
+            background: #236B43;
+            transform: translateY(-1px);
+        }
+
+        .form-submit:active {
+            transform: translateY(0);
+        }
+
+        /* Tab Content Specific Styling */
+        .tab-description {
+            background: var(--bma-gray-50);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--bma-green);
+        }
+
+        .tab-description p {
+            margin: 0;
+            color: var(--bma-gray-700);
+            line-height: 1.5;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .nav-menu {
@@ -646,6 +1257,57 @@
             .hero-stats {
                 grid-template-columns: 1fr;
             }
+
+            .popup-container {
+                width: 95%;
+                max-height: 95vh;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-tabs {
+                flex-direction: column;
+            }
+
+            .tab-button {
+                text-align: center;
+                padding: 0.75rem;
+            }
+
+            .games-tabs {
+                flex-direction: column;
+                gap: 0.5rem;
+                margin-bottom: 3rem;
+            }
+
+            .game-tab {
+                min-width: auto;
+                padding: 1rem;
+            }
+
+            .game-showcase {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .game-image {
+                order: 1;
+            }
+
+            .game-info {
+                order: 2;
+                padding: 1rem 0;
+            }
+
+            .game-title {
+                font-size: 2rem;
+            }
+
+            .game-actions {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -658,13 +1320,13 @@
                 <img src="Assets/Bet Max Action-Full Lockup-600.png" alt="Bet Max Action">
             </div>
             <ul class="nav-menu">
+                <li><a href="#games" class="nav-link">Games</a></li>
                 <li><a href="#solutions" class="nav-link">Solutions</a></li>
-                <li><a href="#technology" class="nav-link">Technology</a></li>
                 <li><a href="#clients" class="nav-link">Clients</a></li>
                 <li><a href="#company" class="nav-link">Company</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#" class="nav-link" onclick="openContactPopup()">Contact</a></li>
             </ul>
-            <a href="#demo" class="btn-demo">Request Demo</a>
+            <a href="#" class="btn-demo" onclick="openContactPopup()">Request Demo</a>
         </div>
     </nav>
 
@@ -681,26 +1343,108 @@
                 <h1 class="hero-title">Enterprise Gaming Technology Solutions</h1>
                 <p class="hero-description">We power the world's leading casinos and sportsbooks with cutting-edge gaming technology, loyalty platforms, and gamification solutions designed for enterprise scale.</p>
                 <div class="hero-actions">
-                    <a href="#demo" class="btn-primary">Schedule Demo</a>
-                    <a href="#solutions" class="btn-secondary">View Solutions</a>
+                    <a href="#" class="btn-primary" onclick="openContactPopup()">Schedule Demo</a>
                 </div>
             </div>
             <div class="hero-right">
                 <img src="Assets/Bet Max Action-Full Lockup-600.png" alt="Bet Max Action" class="hero-logo">
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">500M+</span>
-                        <span class="stat-label">Player Interactions</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-label">Enterprise Clients</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">99.9%</span>
-                        <span class="stat-label">Platform Uptime</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section class="games-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Gaming Products</h2>
+                <p class="section-subtitle">Experience the future of sports gaming and tournament management</p>
+            </div>
+            
+            <div class="games-tabs">
+                <button class="game-tab active" onclick="switchGameTab('tournament')">
+                    <span class="tab-category">Sports Tournament</span>
+                    <span class="tab-title">BMA Tournament</span>
+                </button>
+            </div>
+
+            <div class="game-content-container">
+                <!-- BMA Tournament -->
+                <div class="game-content active" id="tournament-content">
+                    <div class="game-showcase">
+                        <div class="game-image">
+                            <div class="betting-interface">
+                                <div class="betting-header">
+                                    <div class="betting-logo">BMA TOURNAMENT</div>
+                                    <div class="betting-nav">
+                                        <span class="nav-item active">NFL</span>
+                                        <span class="nav-item">NBA</span>
+                                        <span class="nav-item">MLB</span>
+                                    </div>
+                                </div>
+                                <div class="betting-content">
+                                    <div class="game-row">
+                                        <div class="team-info">
+                                            <span class="team">Chiefs vs Bills</span>
+                                            <span class="time">Sun 1:00 PM</span>
+                                        </div>
+                                        <div class="odds">
+                                            <div class="odd-btn">KC -3.5 (-110)</div>
+                                            <div class="odd-btn">BUF +3.5 (-110)</div>
+                                        </div>
+                                    </div>
+                                    <div class="game-row">
+                                        <div class="team-info">
+                                            <span class="team">Cowboys vs Giants</span>
+                                            <span class="time">Sun 4:25 PM</span>
+                                        </div>
+                                        <div class="odds">
+                                            <div class="odd-btn">DAL -7 (-105)</div>
+                                            <div class="odd-btn">NYG +7 (-115)</div>
+                                        </div>
+                                    </div>
+                                    <div class="game-row">
+                                        <div class="team-info">
+                                            <span class="team">49ers vs Rams</span>
+                                            <span class="time">Mon 8:15 PM</span>
+                                        </div>
+                                        <div class="odds">
+                                            <div class="odd-btn">SF -2.5 (-110)</div>
+                                            <div class="odd-btn">LAR +2.5 (-110)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="betting-footer">
+                                    <div class="live-indicator">● LIVE ODDS</div>
+                                    <div class="tournament-info">Active Tournaments: 12</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-header">
+                                <h3 class="game-title">BMA Tournament</h3>
+                                <div class="game-status live">Live</div>
+                            </div>
+                            <p class="game-description">
+                                Revolutionary tournament management platform that transforms traditional sports betting into engaging, social competitions. Create, manage, and participate in custom tournaments with real-time leaderboards and dynamic prize pools.
+                            </p>
+                            <div class="game-features">
+                                <div class="feature-tag">Real-time Scoring</div>
+                                <div class="feature-tag">Social Leaderboards</div>
+                                <div class="feature-tag">Custom Tournaments</div>
+                                <div class="feature-tag">Prize Management</div>
+                            </div>
+                            <div class="game-actions">
+                                <button class="btn-game-primary" onclick="">
+                                    Download
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="margin-left: 8px;">
+                                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -725,7 +1469,7 @@
                         <li>Advanced analytics dashboard</li>
                         <li>Regulatory compliance tools</li>
                     </ul>
-                    <a href="#contact" class="solution-cta">Learn More →</a>
+                    <a href="#" class="solution-cta" onclick="openContactPopup('partnership')">Learn More →</a>
                 </div>
                 
                 <div class="solution-card">
@@ -740,7 +1484,7 @@
                         <li>Campaign automation</li>
                         <li>Player segmentation & analytics</li>
                     </ul>
-                    <a href="#contact" class="solution-cta">Learn More →</a>
+                    <a href="#" class="solution-cta" onclick="openContactPopup('partnership')">Learn More →</a>
                 </div>
                 
                 <div class="solution-card">
@@ -755,7 +1499,7 @@
                         <li>Social leaderboards</li>
                         <li>Automated reward distribution</li>
                     </ul>
-                    <a href="#contact" class="solution-cta">Learn More →</a>
+                    <a href="#" class="solution-cta" onclick="openContactPopup('partnership')">Learn More →</a>
                 </div>
             </div>
         </div>
@@ -819,7 +1563,7 @@
         <div class="container">
             <h2>Ready to Transform Your Gaming Platform?</h2>
             <p>Schedule a personalized demo and discover how Bet Max Action's enterprise solutions can drive growth for your operation.</p>
-            <a href="#contact" class="btn-primary">Schedule Your Demo</a>
+            <a href="#" class="btn-primary" onclick="openContactPopup()">Schedule Your Demo</a>
         </div>
     </section>
 
@@ -867,5 +1611,259 @@
             </div>
         </div>
     </footer>
+
+    <!-- Contact Popup -->
+    <div class="popup-overlay" id="contactPopup">
+        <div class="popup-container">
+            <div class="popup-header">
+                <button class="popup-close" onclick="closeContactPopup()">&times;</button>
+                <h2 class="popup-title">Get In Touch</h2>
+                <p class="popup-subtitle">Let's discuss how we can power your gaming platform</p>
+            </div>
+            <div class="popup-content">
+                <div class="contact-tabs">
+                    <button class="tab-button active" onclick="switchTab('general')">General Inquiry</button>
+                    <button class="tab-button" onclick="switchTab('partnership')">Partnership</button>
+                    <button class="tab-button" onclick="switchTab('support')">Support</button>
+                </div>
+
+                <!-- General Inquiry Tab -->
+                <div class="tab-content active" id="general-tab">
+                    <div class="tab-description">
+                        <p>Have questions about our gaming technology solutions? We're here to help.</p>
+                    </div>
+                    <form class="contact-form" onsubmit="handleFormSubmit(event, 'general')">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">First Name *</label>
+                                <input type="text" class="form-input" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Last Name *</label>
+                                <input type="text" class="form-input" name="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Email *</label>
+                                <input type="email" class="form-input" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Company</label>
+                                <input type="text" class="form-input" name="company">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Subject *</label>
+                            <select class="form-select" name="subject" required>
+                                <option value="">Select a topic</option>
+                                <option value="product-info">Product Information</option>
+                                <option value="pricing">Pricing Inquiry</option>
+                                <option value="demo">Request Demo</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Message *</label>
+                            <textarea class="form-textarea" name="message" rows="4" placeholder="Tell us about your project and how we can help..." required></textarea>
+                        </div>
+                        <button type="submit" class="form-submit">Send Message</button>
+                    </form>
+                </div>
+
+                <!-- Partnership Tab -->
+                <div class="tab-content" id="partnership-tab">
+                    <div class="tab-description">
+                        <p>Interested in white-label solutions or strategic partnerships? Let's explore opportunities together.</p>
+                    </div>
+                    <form class="contact-form" onsubmit="handleFormSubmit(event, 'partnership')">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">First Name *</label>
+                                <input type="text" class="form-input" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Last Name *</label>
+                                <input type="text" class="form-input" name="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Business Email *</label>
+                                <input type="email" class="form-input" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Company *</label>
+                                <input type="text" class="form-input" name="company" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Job Title</label>
+                                <input type="text" class="form-input" name="jobTitle">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Company Size</label>
+                                <select class="form-select" name="companySize">
+                                    <option value="">Select size</option>
+                                    <option value="startup">Startup (1-10 employees)</option>
+                                    <option value="small">Small (11-50 employees)</option>
+                                    <option value="medium">Medium (51-200 employees)</option>
+                                    <option value="large">Large (200+ employees)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Partnership Interest *</label>
+                            <select class="form-select" name="partnershipType" required>
+                                <option value="">Select partnership type</option>
+                                <option value="white-label">White-label Solutions</option>
+                                <option value="integration">Platform Integration</option>
+                                <option value="reseller">Reseller Partnership</option>
+                                <option value="strategic">Strategic Alliance</option>
+                                <option value="custom">Custom Development</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Project Details *</label>
+                            <textarea class="form-textarea" name="message" rows="4" placeholder="Tell us about your business, target markets, and partnership goals..." required></textarea>
+                        </div>
+                        <button type="submit" class="form-submit">Request Partnership Info</button>
+                    </form>
+                </div>
+
+                <!-- Support Tab -->
+                <div class="tab-content" id="support-tab">
+                    <div class="tab-description">
+                        <p>Need technical assistance or have questions about existing services? Our support team is ready to help.</p>
+                    </div>
+                    <form class="contact-form" onsubmit="handleFormSubmit(event, 'support')">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">First Name *</label>
+                                <input type="text" class="form-input" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Last Name *</label>
+                                <input type="text" class="form-input" name="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Email *</label>
+                                <input type="email" class="form-input" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Company *</label>
+                                <input type="text" class="form-input" name="company" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Priority *</label>
+                                <select class="form-select" name="priority" required>
+                                    <option value="">Select priority</option>
+                                    <option value="low">Low - General Question</option>
+                                    <option value="medium">Medium - Feature Request</option>
+                                    <option value="high">High - Service Issue</option>
+                                    <option value="urgent">Urgent - System Down</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Product/Service</label>
+                                <select class="form-select" name="product">
+                                    <option value="">Select product</option>
+                                    <option value="sports-platform">Sports Gaming Platform</option>
+                                    <option value="casino-loyalty">Casino Loyalty Technology</option>
+                                    <option value="gamification">Gamification Suite</option>
+                                    <option value="api">API Integration</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Issue Description *</label>
+                            <textarea class="form-textarea" name="message" rows="4" placeholder="Please describe the issue or question in detail..." required></textarea>
+                        </div>
+                        <button type="submit" class="form-submit">Submit Support Ticket</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentTab = 'general';
+        let currentGameTab = 'tournament';
+
+        function switchGameTab(gameTabName) {
+            // Remove active from all game tabs and content
+            document.querySelectorAll('.game-tab').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.game-content').forEach(content => content.classList.remove('active'));
+            
+            // Add active to selected game tab and content
+            document.querySelector(`[onclick="switchGameTab('${gameTabName}')"]`).classList.add('active');
+            document.getElementById(`${gameTabName}-content`).classList.add('active');
+            
+            currentGameTab = gameTabName;
+        }
+
+        function openContactPopup(tab = 'general') {
+            document.getElementById('contactPopup').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            if (tab !== currentTab) {
+                switchTab(tab);
+            }
+        }
+
+        function closeContactPopup() {
+            document.getElementById('contactPopup').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function switchTab(tabName) {
+            // Remove active from all tabs and content
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            // Add active to selected tab and content
+            document.querySelector(`[onclick="switchTab('${tabName}')"]`).classList.add('active');
+            document.getElementById(`${tabName}-tab`).classList.add('active');
+            
+            currentTab = tabName;
+        }
+
+        function handleFormSubmit(event, formType) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+            data.formType = formType;
+            
+            // Show success message
+            alert(`Thank you for your ${formType} inquiry! We'll get back to you within 24 hours.`);
+            
+            // Reset form and close popup
+            event.target.reset();
+            closeContactPopup();
+            
+            // Here you would typically send the data to your server
+            console.log('Form submitted:', data);
+        }
+
+        // Close popup when clicking outside
+        document.getElementById('contactPopup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeContactPopup();
+            }
+        });
+
+        // Close popup on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeContactPopup();
+            }
+        });
+    </script>
 </body>
 </html>
