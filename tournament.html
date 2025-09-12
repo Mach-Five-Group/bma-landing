@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="generator" content="Hugo 0.103.0" />
+    <title>BMA Tournament - Where Big Wins Begin</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=2, minimum-scale=1, width=device-width, height=device-height"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bma-green: #2E8B57;
+            --bma-yellow: #FFD700;
+            --bma-red: #DC143C;
+            --bma-black: #000000;
+            --bma-white: #FFFFFF;
+            --bma-gray-50: #F9FAFB;
+            --bma-gray-100: #F3F4F6;
+            --bma-gray-200: #E5E7EB;
+            --bma-gray-300: #D1D5DB;
+            --bma-gray-600: #4B5563;
+            --bma-gray-900: #111827;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--bma-white);
+            background: var(--bma-black);
+            overflow-x: hidden;
+        }
+
+        /* Hero Section with Explosive Typography */
+        .tournament-hero {
+            min-height: 100vh;
+            background: 
+                linear-gradient(135deg, var(--bma-black) 0%, #1a1a1a 50%, var(--bma-gray-900) 100%),
+                radial-gradient(circle at 20% 30%, rgba(46, 139, 87, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(220, 20, 60, 0.08) 0%, transparent 60%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .explosive-title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .title-accent {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--bma-yellow);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .title-main {
+            font-size: 6rem;
+            font-weight: 900;
+            color: var(--bma-white);
+            letter-spacing: -0.02em;
+            text-shadow: 
+                0 0 40px rgba(255, 255, 255, 0.4),
+                6px 6px 0px var(--bma-green),
+                12px 12px 30px rgba(0, 0, 0, 0.9);
+            transform: perspective(600px) rotateX(20deg);
+            margin: 1rem 0;
+        }
+
+        .title-impact {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--bma-red);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-shadow: 
+                0 0 35px rgba(220, 20, 60, 0.9),
+                3px 3px 0px var(--bma-black),
+                6px 6px 20px rgba(0, 0, 0, 0.8);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 215, 0, 0.4); }
+            100% { text-shadow: 0 0 50px rgba(255, 215, 0, 1), 0 0 100px rgba(255, 215, 0, 0.6); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+
+        .action-subtitle {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.95);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .action-subtitle::before,
+        .action-subtitle::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--bma-yellow), transparent);
+            animation: slideGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes slideGlow {
+            0% { opacity: 0.6; transform: scaleX(0.6); }
+            100% { opacity: 1; transform: scaleX(1); }
+        }
+
+        /* Tournament Interface */
+        .tournament-interface {
+            max-width: 1000px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 2px solid var(--bma-green);
+            padding: 3rem;
+            box-shadow: 
+                0 0 0 4px rgba(46, 139, 87, 0.3),
+                0 20px 60px rgba(0, 0, 0, 0.8);
+        }
+
+        .tournament-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .tournament-logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--bma-yellow);
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+            margin-bottom: 1rem;
+        }
+
+        .live-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--bma-red);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .live-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--bma-red);
+            border-radius: 50%;
+            animation: livePulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes livePulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        /* Game Rows */
+        .game-row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(46, 139, 87, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .game-row:hover {
+            background: rgba(46, 139, 87, 0.1);
+            border-color: var(--bma-green);
+            transform: translateX(10px);
+        }
+
+        .team-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .team {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--bma-white);
+        }
+
+        .time {
+            font-size: 1rem;
+            color: var(--bma-yellow);
+            font-weight: 500;
+        }
+
+        .odds {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .odd-btn {
+            background: var(--bma-green);
+            color: var(--bma-white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 2px solid var(--bma-green);
+        }
+
+        .odd-btn:hover {
+            background: var(--bma-yellow);
+            color: var(--bma-black);
+            border-color: var(--bma-yellow);
+            transform: scale(1.05);
+        }
+
+        /* Background Effects */
+        .tournament-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 30% 40%, rgba(46, 139, 87, 0.1) 1px, transparent 1px),
+                radial-gradient(circle at 70% 60%, rgba(255, 215, 0, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px, 80px 80px;
+            animation: bgFloat 20s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes bgFloat {
+            0% { transform: rotate(0deg) translateX(-20px); }
+            100% { transform: rotate(360deg) translateX(-20px); }
+        }
+
+        /* CTA Section */
+        .tournament-cta {
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--bma-red), var(--bma-yellow));
+            color: var(--bma-black);
+            padding: 1.5rem 3rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 0 0 3px rgba(255, 215, 0, 0.3),
+                0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 0 0 5px rgba(255, 215, 0, 0.5),
+                0 20px 50px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .title-main {
+                font-size: 3.5rem;
+            }
+            
+            .title-impact {
+                font-size: 2.5rem;
+            }
+            
+            .action-subtitle {
+                font-size: 1.2rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .tournament-interface {
+                padding: 2rem;
+                margin: 0 1rem;
+            }
+            
+            .odds {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tournament-hero">
+        <div class="hero-content">
+            <div class="explosive-title">
+                <span class="title-accent">WHERE</span>
+                <span class="title-main">BIG WINS</span>
+                <span class="title-impact">BEGIN</span>
+            </div>
+            <div class="action-subtitle">
+                Live tournaments • Real money • Maximum action
+            </div>
+            
+            <div class="tournament-interface">
+                <div class="tournament-header">
+                    <div class="tournament-logo">BMA TOURNAMENT</div>
+                    <div class="live-indicator">
+                        <div class="live-dot"></div>
+                        LIVE TOURNAMENT
+                    </div>
+                </div>
+                
+                <div class="tournament-games">
+                    <div class="game-row">
+                        <div class="team-info">
+                            <span class="team">Chiefs vs Bills</span>
+                            <span class="time">Championship Final • Sun 1:00 PM</span>
+                        </div>
+                        <div class="odds">
+                            <div class="odd-btn">KC -3.5 (-110)</div>
+                            <div class="odd-btn">BUF +3.5 (-110)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="game-row">
+                        <div class="team-info">
+                            <span class="team">Cowboys vs Giants</span>
+                            <span class="time">Semi-Final • Sun 4:25 PM</span>
+                        </div>
+                        <div class="odds">
+                            <div class="odd-btn">DAL -7 (-105)</div>
+                            <div class="odd-btn">NYG +7 (-115)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="game-row">
+                        <div class="team-info">
+                            <span class="team">49ers vs Rams</span>
+                            <span class="time">Quarter-Final • Mon 8:15 PM</span>
+                        </div>
+                        <div class="odds">
+                            <div class="odd-btn">SF -2.5 (-110)</div>
+                            <div class="odd-btn">LAR +2.5 (-110)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tournament-cta">
+                    <a href="#" class="cta-button">Join Tournament Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

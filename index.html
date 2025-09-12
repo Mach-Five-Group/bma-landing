@@ -22,6 +22,14 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="apple-mobile-web-app-title" content="BetMaxAction" />
 
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TZGLXZXZ');</script>
+<!-- End Google Tag Manager -->
+
     <style>
         :root {
             --bma-green: #2E8B57;
@@ -332,6 +340,7 @@
             gap: 1rem;
             margin-bottom: 4rem;
             justify-content: center;
+            padding: 0 2rem;
         }
 
         .game-tab {
@@ -718,6 +727,479 @@
             background: var(--bma-white);
         }
 
+        /* Results Section - Clean Implementation */
+        .results-section {
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .results-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 100%;
+        }
+
+        /* Left Side - Content with Football Background */
+        .results-left {
+            background-image: url('https://images.unsplash.com/photo-1566577739112-5180d4bf9390?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 4rem;
+        }
+
+        .results-left::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                135deg, 
+                rgba(46, 139, 87, 0.9) 0%, 
+                rgba(46, 139, 87, 0.8) 50%,
+                rgba(0, 0, 0, 0.7) 100%
+            );
+            z-index: 1;
+        }
+
+        .results-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+
+        .results-content h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .results-intro {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .metric-descriptions {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .metric-desc {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .metric-desc h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: white;
+        }
+
+        .metric-desc p {
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* Right Side - KPI Visualization */
+        .results-right {
+            background: linear-gradient(135deg, rgba(46, 139, 87, 0.05) 0%, var(--bma-white) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .kpi-visualization {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 600px;
+            background: 
+                linear-gradient(135deg, rgba(248, 250, 252, 0.8) 0%, rgba(255, 255, 255, 0.9) 100%),
+                linear-gradient(90deg, rgba(46, 139, 87, 0.08) 1px, transparent 1px),
+                linear-gradient(rgba(46, 139, 87, 0.08) 1px, transparent 1px);
+            background-size: 100% 100%, 30px 30px, 30px 30px;
+            overflow: hidden;
+        }
+
+        /* Large Red Sweeping Circles */
+        .red-circle {
+            position: absolute;
+            border: 8px solid var(--bma-red);
+            border-radius: 50%;
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        .red-circle-1 {
+            width: 180px;
+            height: 180px;
+            top: 5%;
+            right: 10%;
+            border-style: dashed;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .red-circle-2 {
+            width: 120px;
+            height: 120px;
+            bottom: 15%;
+            left: 15%;
+            animation: pulse 4s ease-in-out infinite 1s;
+        }
+
+        .red-circle-3 {
+            width: 100px;
+            height: 100px;
+            top: 30%;
+            left: 5%;
+            border-style: dotted;
+            animation: pulse 4s ease-in-out infinite 2s;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.1); opacity: 0.9; }
+        }
+
+        /* Large Yellow X Markers */
+        .play-marker {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            z-index: 3;
+            transform: rotate(15deg);
+            animation: wiggle 3s ease-in-out infinite;
+        }
+
+        .play-marker:nth-child(even) {
+            transform: rotate(-10deg);
+            animation-delay: 1s;
+        }
+
+        .play-x {
+            color: var(--bma-yellow);
+            font-size: 48px;
+            font-weight: 900;
+            text-shadow: 
+                3px 3px 0px rgba(0, 0, 0, 0.8),
+                -1px -1px 0px rgba(0, 0, 0, 0.8),
+                1px -1px 0px rgba(0, 0, 0, 0.8),
+                -1px 1px 0px rgba(0, 0, 0, 0.8);
+            font-family: Impact, 'Arial Black', sans-serif;
+            display: block;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(15deg) scale(1); }
+            25% { transform: rotate(18deg) scale(1.05); }
+            75% { transform: rotate(12deg) scale(0.98); }
+        }
+
+        .x-marker-1 { top: 8%; left: 8%; }
+        .x-marker-2 { top: 15%; right: 12%; }
+        .x-marker-3 { bottom: 12%; left: 18%; }
+        .x-marker-4 { bottom: 8%; right: 8%; }
+        .x-marker-5 { top: 35%; left: 75%; }
+        .x-marker-6 { bottom: 35%; right: 78%; }
+
+        /* Hand-drawn style annotations */
+        .play-annotation {
+            position: absolute;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: var(--bma-gray-600);
+            transform: rotate(-5deg);
+            z-index: 2;
+        }
+
+        .annotation-1 { top: 12%; left: 25%; }
+        .annotation-2 { bottom: 25%; right: 10%; }
+
+        .center-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-2deg);
+            width: 140px;
+            height: 140px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 
+                0 0 0 6px var(--bma-black),
+                0 8px 25px rgba(0, 0, 0, 0.4);
+            border: 4px solid var(--bma-green);
+            z-index: 10;
+            animation: quarterback 5s ease-in-out infinite;
+        }
+
+        .center-logo img {
+            width: 90px;
+            height: auto;
+        }
+
+        @keyframes quarterback {
+            0%, 100% { transform: translate(-50%, -50%) rotate(-2deg) scale(1); }
+            50% { transform: translate(-50%, -50%) rotate(1deg) scale(1.02); }
+        }
+
+        .kpi-circle {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 5;
+        }
+
+        .kpi-info {
+            text-align: center;
+            background: white;
+            padding: 2rem 2.5rem;
+            border-radius: 12px;
+            box-shadow: 
+                0 0 0 4px var(--bma-black),
+                0 8px 20px rgba(0, 0, 0, 0.3);
+            border: 4px solid var(--bma-green);
+            min-width: 180px;
+            transform: rotate(-3deg);
+            font-family: Impact, 'Arial Black', sans-serif;
+            animation: playCard 4s ease-in-out infinite;
+        }
+
+        .top-circle .kpi-info {
+            transform: rotate(2deg);
+            animation-delay: 0.5s;
+        }
+
+        .left-circle .kpi-info {
+            transform: rotate(-2deg);
+            animation-delay: 1s;
+        }
+
+        .right-circle .kpi-info {
+            transform: rotate(1deg);
+            animation-delay: 1.5s;
+        }
+
+        @keyframes playCard {
+            0%, 100% { transform: rotate(-3deg) scale(1); }
+            50% { transform: rotate(-1deg) scale(1.03); }
+        }
+
+        .kpi-value {
+            display: block;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--bma-green);
+            margin-bottom: 0.5rem;
+            text-shadow: 
+                2px 2px 0px rgba(0, 0, 0, 0.8),
+                -1px -1px 0px rgba(0, 0, 0, 0.8),
+                1px -1px 0px rgba(0, 0, 0, 0.8),
+                -1px 1px 0px rgba(0, 0, 0, 0.8);
+        }
+
+        .kpi-label {
+            display: block;
+            font-size: 1rem;
+            color: var(--bma-black);
+            font-weight: 800;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .top-circle {
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .left-circle {
+            bottom: 80px;
+            left: 60px;
+        }
+
+        .right-circle {
+            bottom: 80px;
+            right: 60px;
+        }
+
+        .connection-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+        }
+
+        .connect-line {
+            stroke: var(--bma-black);
+            stroke-width: 12;
+            opacity: 0.9;
+            stroke-linecap: round;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        .connect-line.sketchy {
+            filter: url(#roughPaper) drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        /* Fresh Football Play Field - Clean Working Version */
+        .play-field {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 600px;
+            background: 
+                linear-gradient(135deg, rgba(248, 250, 252, 0.9) 0%, rgba(255, 255, 255, 0.95) 100%);
+            background-size: 100% 100%;
+        }
+
+        .quarterback {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 180px;
+            height: 180px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 0 6px var(--bma-black);
+            border: 4px solid var(--bma-green);
+            z-index: 10;
+            animation: qbPulse 3s ease-in-out infinite;
+        }
+
+        .quarterback img {
+            width: 120px;
+            height: auto;
+        }
+
+        @keyframes qbPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.05); }
+        }
+
+        .player-box {
+            position: absolute;
+            z-index: 5;
+        }
+
+        .player-stats {
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 0 3px var(--bma-black);
+            border: 3px solid var(--bma-green);
+            text-align: center;
+            min-width: 160px;
+            transform: rotate(-2deg);
+            animation: playerFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes playerFloat {
+            0%, 100% { transform: rotate(-2deg) translateY(0px); }
+            50% { transform: rotate(-2deg) translateY(-5px); }
+        }
+
+        .player-1 {
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .player-1 .player-stats {
+            transform: rotate(1deg);
+        }
+
+        .player-2 {
+            bottom: 80px;
+            left: 50px;
+        }
+
+        .player-2 .player-stats {
+            transform: rotate(-2deg);
+        }
+
+        .player-3 {
+            bottom: 80px;
+            right: 50px;
+        }
+
+        .player-3 .player-stats {
+            transform: rotate(2deg);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--bma-green);
+            margin-bottom: 0.25rem;
+            font-family: Impact, 'Arial Black', sans-serif;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--bma-black);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+
+        .x-marker {
+            position: absolute;
+            color: var(--bma-yellow);
+            font-size: 32px;
+            font-weight: 900;
+            font-family: Impact, sans-serif;
+            z-index: 4;
+            text-shadow: 2px 2px 0px var(--bma-black);
+            animation: xWiggle 3s ease-in-out infinite;
+        }
+
+        @keyframes xWiggle {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(5deg) scale(1.05); }
+            75% { transform: rotate(-5deg) scale(0.98); }
+        }
+
+        .move-circle {
+            position: absolute;
+            border: 4px solid var(--bma-red);
+            border-radius: 50%;
+            border-style: dashed;
+            z-index: 2;
+            animation: circleBreath 5s ease-in-out infinite;
+        }
+
+        @keyframes circleBreath {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.7; }
+            50% { transform: scale(1.1) rotate(180deg); opacity: 0.9; }
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -735,9 +1217,51 @@
             margin-bottom: 1rem;
         }
 
+        .kpi-content .section-title {
+            color: var(--bma-white);
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
         .section-subtitle {
             font-size: 1.25rem;
             color: var(--bma-gray-600);
+        }
+
+        .kpi-content .section-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.35rem;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        .results-description {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .result-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .result-item h3 {
+            color: var(--bma-white);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .result-item p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
         .solutions-grid {
@@ -1308,11 +1832,132 @@
             .game-actions {
                 flex-direction: column;
             }
+
+            .results-container {
+                grid-template-columns: 1fr;
+            }
+
+            .results-left {
+                padding: 3rem 2rem;
+                min-height: 70vh;
+            }
+
+            .results-content h2 {
+                font-size: 2.5rem;
+            }
+
+            .results-intro {
+                font-size: 1.2rem;
+            }
+
+            .metric-descriptions {
+                gap: 2rem;
+            }
+
+            .metric-desc {
+                padding: 1.5rem;
+            }
+
+            .metric-desc h3 {
+                font-size: 1.25rem;
+            }
+
+            .results-right {
+                padding: 3rem 2rem;
+                min-height: 60vh;
+            }
+
+            .kpi-visualization {
+                min-height: 500px;
+                max-width: 450px;
+                margin: 0 auto;
+            }
+
+            .center-logo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .center-logo img {
+                width: 70px;
+            }
+
+            .kpi-info {
+                padding: 1rem 1.25rem;
+                min-width: 130px;
+            }
+
+            .kpi-value {
+                font-size: 1.8rem;
+            }
+
+            .kpi-label {
+                font-size: 0.8rem;
+            }
+
+            .top-circle {
+                top: 60px;
+            }
+
+            .left-circle {
+                bottom: 60px;
+                left: 40px;
+            }
+
+            .right-circle {
+                bottom: 60px;
+                right: 40px;
+            }
+
+            .play-x {
+                font-size: 36px;
+            }
+
+            .play-marker {
+                width: 50px;
+                height: 50px;
+            }
+
+            .red-circle-1 {
+                width: 140px;
+                height: 140px;
+            }
+
+            .red-circle-2 {
+                width: 100px;
+                height: 100px;
+            }
+
+            .red-circle-3 {
+                width: 80px;
+                height: 80px;
+            }
+
+            .connect-line {
+                stroke-width: 10;
+            }
+
+            .kpi-value {
+                font-size: 2.5rem;
+            }
+
+            .x-marker-1 { top: 8%; left: 8%; }
+            .x-marker-2 { top: 18%; right: 12%; }
+            .x-marker-3 { bottom: 12%; left: 15%; }
+            .x-marker-4 { bottom: 8%; right: 8%; }
+            .x-marker-5 { top: 32%; left: 70%; }
+            .x-marker-6 { bottom: 32%; right: 75%; }
         }
     </style>
 </head>
 
 <body>
+
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TZGLXZXZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
     <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-container">
@@ -1342,9 +1987,6 @@
             <div class="hero-content">
                 <h1 class="hero-title">Enterprise Gaming Technology Solutions</h1>
                 <p class="hero-description">We power the world's leading casinos and sportsbooks with cutting-edge gaming technology, loyalty platforms, and gamification solutions designed for enterprise scale.</p>
-                <div class="hero-actions">
-                    <a href="#" class="btn-primary" onclick="openContactPopup()">Schedule Demo</a>
-                </div>
             </div>
             <div class="hero-right">
                 <img src="Assets/Bet Max Action-Full Lockup-600.png" alt="Bet Max Action" class="hero-logo">
@@ -1356,8 +1998,8 @@
     <section class="games-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Our Gaming Products</h2>
-                <p class="section-subtitle">Experience the future of sports gaming and tournament management</p>
+                <h2 class="section-title">Where Big Wins Begin</h2>
+                <p class="section-subtitle">Live tournaments that turn every game into maximum action</p>
             </div>
             
             <div class="games-tabs">
@@ -1450,6 +2092,7 @@
     </section>
 
     <!-- Solutions Section -->
+    <!-- 
     <section class="solutions" id="solutions">
         <div class="container">
             <div class="section-header">
@@ -1504,6 +2147,89 @@
             </div>
         </div>
     </section>
+    -->
+
+    <!-- Results Section -->
+    <section class="results-section" id="solutions">
+        <div class="results-container">
+            <!-- Left Side - Content with Football Background -->
+            <div class="results-left">
+                <div class="results-content">
+                    <h2>Proven Results</h2>
+                    <p class="results-intro">Our technology delivers measurable business impact for gaming operators worldwide</p>
+                    
+                    <div class="metric-descriptions">
+                        <div class="metric-desc">
+                            <h3>Customer Acquisition</h3>
+                            <p>47% increase in new player acquisition through optimized onboarding and targeted campaigns.</p>
+                        </div>
+                        <div class="metric-desc">
+                            <h3>Monthly Retention</h3>
+                            <p>85% monthly retention rate achieved through personalized player experiences and intelligent rewards.</p>
+                        </div>
+                        <div class="metric-desc">
+                            <h3>Lifetime Value</h3>
+                            <p>132% increase in player lifetime value through data-driven segmentation and customization.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Side - KPI Visualization -->
+            <div class="results-right">
+                <div class="play-field">
+                    <!-- Center QB Logo -->
+                    <div class="quarterback">
+                        <img src="Assets/Bet Max Action-Full Lockup-600.png" alt="BMA">
+                    </div>
+                    
+                    <!-- KPI Player Boxes -->
+                    <div class="player-box player-1">
+                        <div class="player-stats">
+                            <div class="stat-number">+47%</div>
+                            <div class="stat-label">CUSTOMER ACQUISITION</div>
+                        </div>
+                    </div>
+                    
+                    <div class="player-box player-2">
+                        <div class="player-stats">
+                            <div class="stat-number">85%</div>
+                            <div class="stat-label">MONTHLY RETENTION</div>
+                        </div>
+                    </div>
+                    
+                    <div class="player-box player-3">
+                        <div class="player-stats">
+                            <div class="stat-number">+132%</div>
+                            <div class="stat-label">LIFETIME VALUE</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Route Lines -->
+                    <svg class="route-svg" width="100%" height="100%" style="position: absolute; top: 0; left: 0; z-index: 3;">
+                        <!-- Center QB is at 50%, 50% -->
+                        <!-- Top player is at 50%, 50px from top -->
+                        <line x1="50%" y1="50%" x2="50%" y2="100" stroke="black" stroke-width="6" stroke-linecap="round"/>
+                        <!-- Bottom left player is at 50px from left, 80px from bottom -->
+                        <line x1="50%" y1="50%" x2="130" y2="85%" stroke="black" stroke-width="6" stroke-linecap="round"/>
+                        <!-- Bottom right player is at 50px from right, 80px from bottom -->
+                        <line x1="50%" y1="50%" x2="85%" y2="85%" stroke="black" stroke-width="6" stroke-linecap="round"/>
+                    </svg>
+                    
+                    <!-- Yellow X Markers -->
+                    <div class="x-marker" style="top: 10%; left: 15%;">✕</div>
+                    <div class="x-marker" style="top: 20%; right: 15%;">✕</div>
+                    <div class="x-marker" style="bottom: 20%; left: 20%;">✕</div>
+                    <div class="x-marker" style="bottom: 15%; right: 20%;">✕</div>
+                    <div class="x-marker" style="top: 40%; left: 80%;">✕</div>
+                    
+                    <!-- Red Movement Circles -->
+                    <div class="move-circle" style="top: 15%; right: 25%; width: 100px; height: 100px;"></div>
+                    <div class="move-circle" style="bottom: 25%; left: 10%; width: 80px; height: 80px;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Technology Section -->
     <section class="technology" id="technology">
@@ -1544,8 +2270,8 @@
     <section class="clients" id="clients">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Trusted by Leading Operators</h2>
-                <p class="section-subtitle">Our technology powers some of the world's most successful gaming operators</p>
+                <h2 class="section-title">Game Changers Choose BMA</h2>
+                <p class="section-subtitle">The operators making serious money run on our platform</p>
             </div>
             <div class="client-logos">
                 <div class="client-logo">Major Casino Group</div>
@@ -1864,6 +2590,7 @@
                 closeContactPopup();
             }
         });
+
     </script>
 </body>
 </html>
