@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta name="generator" content="Hugo 0.103.0" />
-    <title>Bet Max Action - Gaming Technology Solutions</title>
+    <title>Bet Max Action - Enterprise Gaming Technology Solutions</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=2, minimum-scale=1, width=device-width, height=device-height"/>
 
@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <meta property="og:title" content="Bet Max Action - Gaming Technology Solutions">
+    <meta property="og:title" content="Bet Max Action - Enterprise Gaming Technology Solutions">
     <meta property="og:site_name" content="Bet Max Action">
     <meta property="og:url" content="https://www.BetMaxAction.com/">
     <meta property="og:description" content="Enterprise gaming technology solutions for casinos and sportsbooks. API-first platforms for sports gaming, casino loyalty, and gamification.">
@@ -22,7 +22,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="apple-mobile-web-app-title" content="BetMaxAction" />
 
-    <!-- Google Tag Manager -->
+<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -37,11 +37,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             --bma-red: #DC143C;
             --bma-black: #000000;
             --bma-white: #FFFFFF;
+            --bma-dark-100: #0a0a0a;
+            --bma-dark-200: #141414;
+            --bma-dark-300: #1a1a1a;
+            --bma-dark-400: #242424;
+            --bma-dark-500: #2d2d2d;
             --bma-gray-50: #F9FAFB;
             --bma-gray-100: #F3F4F6;
             --bma-gray-200: #E5E7EB;
             --bma-gray-300: #D1D5DB;
+            --bma-gray-400: #9CA3AF;
+            --bma-gray-500: #6B7280;
             --bma-gray-600: #4B5563;
+            --bma-gray-700: #374151;
+            --bma-gray-800: #1F2937;
             --bma-gray-900: #111827;
         }
 
@@ -54,17 +63,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
-            color: var(--bma-gray-900);
-            background: var(--bma-white);
+            color: var(--bma-white);
+            background: var(--bma-black);
         }
 
         /* Navigation */
         .main-nav {
-            background: var(--bma-white);
-            border-bottom: 1px solid var(--bma-gray-200);
+            background: rgba(0, 0, 0, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
+            backdrop-filter: blur(10px);
         }
 
         .nav-container {
@@ -90,38 +100,89 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         .nav-link {
             text-decoration: none;
-            color: var(--bma-gray-600);
+            color: rgba(255, 255, 255, 0.8);
             font-weight: 500;
             transition: color 0.2s;
         }
 
         .nav-link:hover {
-            color: var(--bma-green);
+            color: var(--bma-yellow);
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(0, 0, 0, 0.95);
+            min-width: 200px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            list-style: none;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li {
+            padding: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .dropdown-menu a:hover {
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--bma-yellow);
+            padding-left: 2rem;
         }
 
         .btn-demo {
-            background: var(--bma-green);
-            color: white;
+            background: var(--bma-yellow);
+            color: var(--bma-black);
             padding: 0.75rem 1.5rem;
             border-radius: 6px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .btn-demo:hover {
-            background: #236B43;
+            background: var(--bma-green);
+            color: var(--bma-white);
             transform: translateY(-1px);
         }
 
         /* Hero Section */
         .hero {
-            padding: 8rem 2rem;
+            padding: 6rem 2rem;
             position: relative;
-            min-height: 80vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
             overflow: hidden;
+            background: #000;
         }
 
         .hero-bg {
@@ -190,7 +251,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
+            background:
                 linear-gradient(135deg, rgba(46, 139, 87, 0.85) 0%, rgba(0, 0, 0, 0.75) 100%),
                 linear-gradient(45deg, rgba(220, 20, 60, 0.1) 0%, rgba(255, 215, 0, 0.1) 100%);
             z-index: 1;
@@ -233,11 +294,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .hero-logo {
-            max-width: 600px;
+            max-width: 500px;
             width: 100%;
             height: auto;
-            filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.4));
+            filter: drop-shadow(0 10px 40px rgba(255, 215, 0, 0.3));
             animation: heroLogoFloat 6s ease-in-out infinite;
+        }
+
+        .hero-tagline {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--bma-red);
+            text-align: center;
+            margin-top: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            border: 3px solid var(--bma-red);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            background: rgba(0, 0, 0, 0.5);
         }
 
         @keyframes heroLogoFloat {
@@ -268,36 +344,44 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .btn-primary {
-            background: var(--bma-green);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 8px;
+            background: var(--bma-yellow);
+            color: var(--bma-black);
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
         }
 
         .btn-primary:hover {
-            background: #236B43;
+            background: var(--bma-green);
+            color: var(--bma-white);
             transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(46, 139, 87, 0.4);
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
+            background: transparent;
             color: var(--bma-white);
-            padding: 1rem 2rem;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 8px;
+            padding: 1rem 2.5rem;
+            border: 2px solid var(--bma-green);
+            border-radius: 30px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.2s;
             backdrop-filter: blur(10px);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.6);
+            background: var(--bma-green);
+            border-color: var(--bma-green);
             color: var(--bma-white);
+            box-shadow: 0 4px 20px rgba(46, 139, 87, 0.4);
         }
 
         .hero-stats {
@@ -329,10 +413,786 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             margin-top: 0.5rem;
         }
 
-        /* Games Section */
+        /* Problem/Solution Section */
+        .problem-solution {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--bma-dark-200) 0%, var(--bma-dark-300) 100%);
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .problem-solution::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.05) 0%, transparent 70%);
+            animation: pulseGlow 8s ease-in-out infinite;
+        }
+
+        .ps-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ps-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .ps-x {
+            font-size: 4rem;
+            color: var(--bma-yellow);
+            font-weight: 900;
+            text-shadow: 3px 3px 0px var(--bma-black);
+        }
+
+        .ps-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--bma-white);
+            text-transform: uppercase;
+            line-height: 1;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        .problem-box {
+            background: rgba(220, 20, 60, 0.1);
+            border: 2px solid var(--bma-red);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .problem-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--bma-red);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .x-icon {
+            font-size: 1.8rem;
+            color: var(--bma-red);
+            font-weight: 900;
+        }
+
+        .problem-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .problem-list li {
+            color: var(--bma-white);
+            font-size: 1.1rem;
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .problem-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--bma-green);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .solution-box {
+            background: rgba(46, 139, 87, 0.1);
+            border: 2px solid var(--bma-green);
+            border-radius: 12px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .solution-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--bma-yellow);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .bulb-icon {
+            font-size: 1.8rem;
+        }
+
+        .solution-text {
+            color: var(--bma-white);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .ps-image-container {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            height: 500px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .ps-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ps-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(46, 139, 87, 0.7) 0%, rgba(0, 0, 0, 0.5) 100%);
+            z-index: 1;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 6rem 2rem;
+            background:
+                radial-gradient(ellipse at top left, rgba(46, 139, 87, 0.1) 0%, transparent 50%),
+                linear-gradient(135deg, var(--bma-gray-900) 0%, var(--bma-dark-100) 100%);
+            position: relative;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .hiw-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .hiw-x {
+            font-size: 4rem;
+            color: var(--bma-yellow);
+            font-weight: 900;
+            text-shadow: 3px 3px 0px var(--bma-black);
+        }
+
+        .hiw-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--bma-white);
+            text-transform: uppercase;
+            line-height: 1;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        .hiw-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .hiw-description {
+            color: var(--bma-white);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hiw-steps {
+            margin: 3rem 0;
+        }
+
+        .hiw-step {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(46, 139, 87, 0.1);
+            border-left: 4px solid var(--bma-green);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .hiw-step:hover {
+            background: rgba(46, 139, 87, 0.2);
+            transform: translateX(10px);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--bma-yellow);
+            color: var(--bma-black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 900;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            color: var(--bma-white);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hiw-note {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+
+        .hiw-highlight {
+            color: var(--bma-white);
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
+        .hiw-mockup {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            height: 500px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .hiw-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hiw-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(46, 139, 87, 0.6) 100%);
+            z-index: 1;
+        }
+
+        .mockup-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            text-align: center;
+            width: 80%;
+        }
+
+        .mockup-header {
+            color: var(--bma-yellow);
+            font-size: 1.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .mockup-stats {
+            display: flex;
+            justify-content: space-around;
+            gap: 2rem;
+        }
+
+        .mockup-stats .stat {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--bma-green);
+        }
+
+        .mockup-stats .stat-value {
+            display: block;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--bma-white);
+            margin-bottom: 0.5rem;
+        }
+
+        .mockup-stats .stat-label {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--bma-yellow);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Platform Portfolio Section */
+        .platform-section {
+            padding: 6rem 2rem;
+            background: var(--bma-dark-300);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+        }
+
+        .platform-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            justify-content: center;
+        }
+
+        .section-x {
+            font-size: 4rem;
+            color: var(--bma-yellow);
+            font-weight: 900;
+            text-shadow: 3px 3px 0px var(--bma-black);
+        }
+
+        .tournament-feature {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--bma-yellow);
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .tournament-badge {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: var(--bma-yellow);
+            color: var(--bma-black);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+
+        .tournament-image {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--bma-dark-200) 0%, var(--bma-dark-400) 100%);
+        }
+
+        .tournament-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Tournament UI Preview */
+        .tournament-ui-preview {
+            width: 100%;
+            height: 100%;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            position: relative;
+            z-index: 1;
+        }
+
+        .ui-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid var(--bma-yellow);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .ui-title {
+            font-weight: 700;
+            color: var(--bma-yellow);
+            font-size: 0.9rem;
+        }
+
+        .ui-prize {
+            color: var(--bma-white);
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .ui-leaderboard {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 0.75rem;
+            overflow: hidden;
+        }
+
+        .ui-leaderboard-header {
+            display: grid;
+            grid-template-columns: 60px 1fr 80px;
+            padding: 0.5rem;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 0.5rem;
+        }
+
+        .ui-leaderboard-row {
+            display: grid;
+            grid-template-columns: 60px 1fr 80px;
+            padding: 0.5rem;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.8);
+            border-radius: 4px;
+            margin-bottom: 0.25rem;
+            transition: all 0.2s ease;
+        }
+
+        .ui-leaderboard-row:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .ui-gold {
+            background: linear-gradient(90deg, rgba(255, 215, 0, 0.2) 0%, transparent 100%);
+            color: var(--bma-yellow);
+            font-weight: 700;
+        }
+
+        .ui-silver {
+            background: linear-gradient(90deg, rgba(192, 192, 192, 0.2) 0%, transparent 100%);
+            color: #c0c0c0;
+            font-weight: 600;
+        }
+
+        .ui-bronze {
+            background: linear-gradient(90deg, rgba(205, 127, 50, 0.2) 0%, transparent 100%);
+            color: #cd7f32;
+            font-weight: 600;
+        }
+
+        .ui-timer {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            background: rgba(46, 139, 87, 0.2);
+            border: 1px solid var(--bma-green);
+            border-radius: 8px;
+            text-align: center;
+            color: var(--bma-green);
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .tournament-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9));
+        }
+
+        .tournament-content {
+            padding: 3rem;
+        }
+
+        .tournament-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--bma-yellow);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .tournament-subtitle {
+            font-size: 1.3rem;
+            color: var(--bma-green);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .tournament-description {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .tournament-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .tournament-features .feature {
+            color: var(--bma-white);
+            padding: 0.75rem;
+            background: rgba(46, 139, 87, 0.2);
+            border-left: 3px solid var(--bma-green);
+            border-radius: 4px;
+        }
+
+        .btn-tournament {
+            display: inline-block;
+            background: var(--bma-yellow);
+            color: var(--bma-black);
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-tournament:hover {
+            background: var(--bma-green);
+            color: var(--bma-white);
+            transform: translateX(5px);
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .capability-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .capability-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--bma-green);
+            transform: translateY(-5px);
+        }
+
+        .capability-icon {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .capability-card h4 {
+            color: var(--bma-white);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .capability-card p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .carousel-track {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .game-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .game-card.featured {
+            border: 2px solid var(--bma-yellow);
+        }
+
+        .game-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--bma-yellow);
+            color: var(--bma-black);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .game-badge.coming {
+            background: var(--bma-green);
+            color: var(--bma-white);
+        }
+
+        .game-preview {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .game-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .game-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .game-icon {
+            font-size: 4rem;
+            opacity: 0.8;
+        }
+
+        .game-info {
+            padding: 2rem;
+        }
+
+        .game-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--bma-white);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .game-description {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .game-stats {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .game-stats .stat {
+            background: rgba(46, 139, 87, 0.2);
+            color: var(--bma-green);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .game-btn {
+            display: inline-block;
+            background: var(--bma-yellow);
+            color: var(--bma-black);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .game-btn:hover {
+            background: var(--bma-green);
+            color: var(--bma-white);
+            transform: translateX(5px);
+        }
+
+        /* Solutions Section */
+        .solutions-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--bma-dark-400) 0%, var(--bma-dark-200) 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .solution-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .solution-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
+            border-color: var(--bma-green);
+        }
+
+        .solution-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .solution-card h3 {
+            color: var(--bma-white);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .solution-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
+        }
+
+        /* Games Section - Hidden */
         .games-section {
-            padding: 8rem 2rem;
-            background: var(--bma-gray-50);
+            display: none;
         }
 
         .games-tabs {
@@ -727,20 +1587,162 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             background: var(--bma-white);
         }
 
-        /* Results Section - Clean Implementation */
-        .results-section {
-            min-height: 100vh;
-            display: flex;
+        /* Max Value Section */
+        .max-value-section {
+            padding: 6rem 2rem;
+            background:
+                radial-gradient(ellipse at bottom right, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+                linear-gradient(135deg, var(--bma-dark-400) 0%, var(--bma-dark-200) 100%);
+            position: relative;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        .results-container {
+        .max-value-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .mv-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            justify-content: center;
+        }
+
+
+        .mv-x {
+            font-size: 4rem;
+            color: var(--bma-yellow);
+            font-weight: 900;
+            text-shadow: 3px 3px 0px var(--bma-black);
+        }
+
+        .mv-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--bma-white);
+            text-transform: uppercase;
+            line-height: 1;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+
+        .mv-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            width: 100%;
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
 
-        /* Left Side - Content with Football Background */
-        .results-left {
+        .mv-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--bma-green);
+            border-radius: 16px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .mv-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(46, 139, 87, 0.3);
+        }
+
+        .bettors-box {
+            border-color: var(--bma-yellow);
+        }
+
+        .partners-box {
+            border-color: var(--bma-green);
+        }
+
+        .mv-box-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--bma-white);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .bettors-box .mv-box-title {
+            color: var(--bma-yellow);
+        }
+
+        .partners-box .mv-box-title {
+            color: var(--bma-green);
+        }
+
+        .mv-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mv-list li {
+            color: var(--bma-white);
+            font-size: 1.1rem;
+            padding: 1rem 0;
+            padding-left: 2.5rem;
+            position: relative;
+            line-height: 1.5;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mv-list li:last-child {
+            border-bottom: none;
+        }
+
+        .mv-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--bma-yellow);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .partners-box .mv-list li::before {
+            color: var(--bma-green);
+        }
+
+        .mv-advantage {
+            background: linear-gradient(135deg, rgba(46, 139, 87, 0.2) 0%, rgba(255, 215, 0, 0.1) 100%);
+            border: 2px solid var(--bma-yellow);
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .advantage-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--bma-yellow);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .advantage-subtitle {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--bma-green);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .advantage-text {
+            font-size: 1.1rem;
+            color: var(--bma-white);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Removed old results CSS - replaced with Max Value section */
+        /* .results-left {
             background-image: url('https://images.unsplash.com/photo-1566577739112-5180d4bf9390?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
@@ -1207,14 +2209,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         .section-header {
             text-align: center;
-            margin-bottom: 6rem;
+            margin-bottom: 4rem;
         }
 
         .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--bma-gray-900);
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--bma-white);
             margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
 
         .kpi-content .section-title {
@@ -1226,7 +2231,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         .section-subtitle {
             font-size: 1.25rem;
-            color: var(--bma-gray-600);
+            color: rgba(255, 255, 255, 0.8);
         }
 
         .kpi-content .section-subtitle {
@@ -1356,10 +2361,204 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             text-decoration: underline;
         }
 
+        /* Partnership Section */
+        .partnership-section {
+            padding: 6rem 2rem;
+            background:
+                radial-gradient(circle at center, rgba(46, 139, 87, 0.08) 0%, transparent 40%),
+                var(--bma-gray-900);
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .partnership-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(46, 139, 87, 0.1) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .partnership-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .partnership-x {
+            font-size: 4rem;
+            color: var(--bma-yellow);
+            font-weight: 900;
+            text-shadow: 3px 3px 0px var(--bma-black);
+        }
+
+        .partnership-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--bma-white);
+            text-transform: uppercase;
+            line-height: 1;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        .partnership-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .partnership-intro {
+            color: var(--bma-white);
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .partnership-leagues {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 2rem;
+            margin: 4rem 0;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            border: 2px solid var(--bma-green);
+        }
+
+        .league-logo {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid var(--bma-yellow);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            height: 120px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .league-logo.fade-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .league-logo.fade-in:nth-child(1) { animation-delay: 0.1s; }
+        .league-logo.fade-in:nth-child(2) { animation-delay: 0.2s; }
+        .league-logo.fade-in:nth-child(3) { animation-delay: 0.3s; }
+        .league-logo.fade-in:nth-child(4) { animation-delay: 0.4s; }
+        .league-logo.fade-in:nth-child(5) { animation-delay: 0.5s; }
+        .league-logo.fade-in:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .league-logo:hover {
+            transform: scale(1.1);
+            background: var(--bma-white);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+            border-color: var(--bma-green);
+        }
+
+        .league-img {
+            max-width: 100%;
+            max-height: 70px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: brightness(0.9);
+            transition: all 0.3s ease;
+        }
+
+        .league-logo:hover .league-img {
+            filter: brightness(1);
+            transform: scale(1.05);
+        }
+
+        .partnership-description {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border-left: 4px solid var(--bma-green);
+        }
+
+        .partnership-benefits {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(46, 139, 87, 0.1);
+            border-radius: 8px;
+            border-left: 3px solid var(--bma-yellow);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            background: rgba(46, 139, 87, 0.2);
+            transform: translateX(10px);
+        }
+
+        .benefit-icon {
+            color: var(--bma-green);
+            font-size: 1.5rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .benefit-text {
+            color: var(--bma-white);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
         /* Technology Section */
         .technology {
             padding: 8rem 2rem;
-            background: var(--bma-gray-50);
+            background: linear-gradient(135deg, var(--bma-dark-300) 0%, var(--bma-dark-400) 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+        }
+
+        .tech-content h2 {
+            color: var(--bma-white);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .tech-content p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .spec-item h4 {
+            color: var(--bma-yellow);
+        }
+
+        .spec-item p {
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .tech-grid {
@@ -1371,14 +2570,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         .tech-content h2 {
             font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--bma-gray-900);
+            font-weight: 900;
+            color: var(--bma-white);
             margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
 
         .tech-content p {
             font-size: 1.25rem;
-            color: var(--bma-gray-600);
+            color: rgba(255, 255, 255, 0.8);
             margin-bottom: 3rem;
             line-height: 1.7;
         }
@@ -1389,17 +2590,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             gap: 2rem;
         }
 
+        .spec-item {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border-left: 3px solid var(--bma-yellow);
+        }
+
         .spec-item h4 {
             font-size: 1.25rem;
             font-weight: 700;
-            color: var(--bma-gray-900);
+            color: var(--bma-yellow);
             margin-bottom: 0.5rem;
+            text-transform: uppercase;
         }
 
         .spec-item p {
-            color: var(--bma-gray-600);
+            color: rgba(255, 255, 255, 0.8);
             font-size: 1rem;
             margin: 0;
+            line-height: 1.5;
         }
 
         .integration-diagram {
@@ -1410,13 +2620,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .integration-item {
-            background: var(--bma-white);
+            background: rgba(255, 255, 255, 0.08);
             padding: 1.5rem;
             border-radius: 8px;
             text-align: center;
             font-weight: 600;
-            color: var(--bma-gray-700);
-            border: 2px solid var(--bma-gray-200);
+            color: rgba(255, 255, 255, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .integration-item:hover {
+            background: rgba(46, 139, 87, 0.1);
+            border-color: var(--bma-green);
+            color: var(--bma-white);
         }
 
         .integration-center {
@@ -1429,12 +2646,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             grid-column: 2;
             grid-row: 2;
             border: 2px solid var(--bma-green);
+            box-shadow: 0 8px 20px rgba(46, 139, 87, 0.3);
         }
 
         /* Clients Section */
         .clients {
             padding: 8rem 2rem;
-            background: var(--bma-white);
+            background: var(--bma-dark-200);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+        }
+
+        .clients::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 100px,
+                    rgba(46, 139, 87, 0.03) 100px,
+                    rgba(46, 139, 87, 0.03) 200px
+                );
+            pointer-events: none;
         }
 
         .client-logos {
@@ -1445,30 +2683,69 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .client-logo {
-            background: var(--bma-gray-50);
+            background: rgba(255, 255, 255, 0.05);
             padding: 3rem;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 120px;
-            color: var(--bma-gray-400);
-            font-weight: 600;
-            border: 1px solid var(--bma-gray-200);
+            color: var(--bma-white);
+            font-weight: 700;
+            border: 2px solid var(--bma-green);
+            transition: all 0.3s ease;
+        }
+
+        .client-logo:hover {
+            background: rgba(46, 139, 87, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(46, 139, 87, 0.3);
         }
 
         /* CTA Section */
         .cta-section {
             padding: 8rem 2rem;
-            background: var(--bma-gray-900);
+            background: url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=3267') center/cover,
+                        linear-gradient(135deg, var(--bma-green) 0%, var(--bma-black) 100%);
             color: white;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(46, 139, 87, 0.9) 0%, rgba(0, 0, 0, 0.8) 100%);
+            z-index: 0;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            z-index: 1;
+        }
+
+        .cta-section .container {
+            position: relative;
+            z-index: 2;
         }
 
         .cta-section h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
+            font-size: 3rem;
+            font-weight: 900;
             margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
         }
 
         .cta-section p {
@@ -1481,49 +2758,102 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .cta-section .btn-primary {
-            background: var(--bma-green);
-            font-size: 1.1rem;
-            padding: 1.25rem 2.5rem;
+            background: var(--bma-yellow);
+            color: var(--bma-black);
+            font-size: 1.2rem;
+            padding: 1.25rem 3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        .cta-section .btn-primary:hover {
+            background: var(--bma-white);
+            box-shadow: 0 12px 40px rgba(255, 255, 255, 0.5);
         }
 
         /* Footer */
         .footer {
-            background: var(--bma-gray-900);
+            background: linear-gradient(135deg, var(--bma-dark-100) 0%, var(--bma-dark-300) 100%);
             color: rgba(255, 255, 255, 0.8);
             padding: 4rem 2rem 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 2px solid var(--bma-green);
         }
 
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 4rem;
         }
 
-        .footer-section h3 {
-            color: white;
+        .footer-brand {
+            flex: 1;
+        }
+
+        .footer-logo {
+            height: 60px;
+            width: auto;
+            margin-bottom: 1rem;
+        }
+
+        .footer-tagline {
+            font-size: 1.2rem;
             font-weight: 700;
+            color: var(--bma-yellow);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-contact {
+            flex: 1;
+            text-align: right;
+        }
+
+        .footer-contact h3 {
+            color: var(--bma-white);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .footer-cta {
+            color: rgba(255, 255, 255, 0.8);
             margin-bottom: 1.5rem;
         }
 
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.8);
+        .footer-btn {
+            display: inline-block;
+            background: var(--bma-yellow);
+            color: var(--bma-black);
+            padding: 1rem 2rem;
+            border-radius: 30px;
             text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-btn:hover {
+            background: var(--bma-green);
+            color: var(--bma-white);
+            transform: translateY(-2px);
+        }
+
+        .footer-email a {
+            color: var(--bma-green);
+            text-decoration: none;
+            font-size: 1.1rem;
             transition: color 0.2s;
         }
 
-        .footer-section a:hover {
-            color: white;
+        .footer-email a:hover {
+            color: var(--bma-yellow);
         }
 
         .footer-bottom {
@@ -1532,6 +2862,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+        }
+
+        .footer-bottom p,
+        .footer-bottom a {
+            font-size: 0.875rem;
         }
 
         /* Contact Popup */
@@ -1565,7 +2901,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             width: 90%;
             max-height: 90vh;
             overflow: hidden;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
             transition: all 0.3s ease;
         }
 
@@ -1574,7 +2910,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .popup-header {
-            background: var(--bma-gradient-primary, linear-gradient(135deg, var(--bma-green) 0%, var(--bma-yellow) 100%));
+            background: linear-gradient(135deg, var(--bma-green) 0%, var(--bma-dark-400) 100%);
             padding: 2rem;
             text-align: center;
             position: relative;
@@ -1593,7 +2929,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            color: var(--bma-black);
+            color: var(--bma-white);
             font-size: 1.5rem;
             transition: all 0.2s ease;
             font-weight: bold;
@@ -1605,14 +2941,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .popup-title {
-            color: var(--bma-black);
+            color: var(--bma-white);
             font-size: 1.8rem;
             font-weight: 800;
             margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .popup-subtitle {
-            color: rgba(0, 0, 0, 0.7);
+            color: rgba(255, 255, 255, 0.9);
             margin: 0.5rem 0 0 0;
             font-weight: 500;
         }
@@ -1965,13 +3302,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <img src="Assets/Bet Max Action-Full Lockup-600.png" alt="Bet Max Action">
             </div>
             <ul class="nav-menu">
-                <li><a href="#games" class="nav-link">Games</a></li>
-                <li><a href="#solutions" class="nav-link">Solutions</a></li>
-                <li><a href="#clients" class="nav-link">Clients</a></li>
-                <li><a href="#company" class="nav-link">Company</a></li>
+                <li class="dropdown">
+                    <a href="#products" class="nav-link">Products ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="tournament.html">BMA Tournament</a></li>
+                    </ul>
+                </li>
+                <li><a href="#partnership" class="nav-link">Partnership</a></li>
+                <li><a href="#technology" class="nav-link">Technology</a></li>
                 <li><a href="#" class="nav-link" onclick="openContactPopup()">Contact</a></li>
             </ul>
-            <a href="#" class="btn-demo" onclick="openContactPopup()">Request Demo</a>
+            <a href="#" class="btn-demo" onclick="openContactPopup('partnership')">PARTNER WITH US</a>
         </div>
     </nav>
 
@@ -1987,6 +3328,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="hero-content">
                 <h1 class="hero-title">Enterprise Gaming Technology Solutions</h1>
                 <p class="hero-description">We power the world's leading casinos and sportsbooks with cutting-edge gaming technology, loyalty platforms, and gamification solutions designed for enterprise scale.</p>
+                <div class="hero-actions">
+                    <a href="#products" class="btn-primary">Explore Solutions</a>
+                    <a href="#" class="btn-secondary" onclick="openContactPopup('partnership')">Partner With Us</a>
+                </div>
             </div>
             <div class="hero-right">
                 <img src="Assets/Bet Max Action-Full Lockup-600.png" alt="Bet Max Action" class="hero-logo">
@@ -1994,22 +3339,109 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </section>
 
-    <!-- Games Section -->
-    <section class="games-section">
+
+    <!-- Platform Portfolio Section -->
+    <section class="platform-section" id="products">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Where Big Wins Begin</h2>
-                <p class="section-subtitle">Live tournaments that turn every game into maximum action</p>
-            </div>
-            
-            <div class="games-tabs">
-                <button class="game-tab active" onclick="switchGameTab('tournament')">
-                    <span class="tab-category">Sports Tournament</span>
-                    <span class="tab-title">BMA Tournament</span>
-                </button>
+            <div class="platform-header">
+                <span class="section-x">✕</span>
+                <h2 class="section-title">PLATFORM<br>PORTFOLIO</h2>
             </div>
 
-            <div class="game-content-container">
+            <div class="platform-showcase">
+                <!-- BMA Tournament Featured -->
+                <div class="tournament-feature">
+                    <div class="tournament-image">
+                        <div class="tournament-ui-preview">
+                            <div class="ui-header">
+                                <span class="ui-title">🏆 DAILY TOURNAMENT</span>
+                                <span class="ui-prize">$10,000 PRIZE POOL</span>
+                            </div>
+                            <div class="ui-leaderboard">
+                                <div class="ui-leaderboard-header">
+                                    <span>RANK</span>
+                                    <span>PLAYER</span>
+                                    <span>SCORE</span>
+                                </div>
+                                <div class="ui-leaderboard-row ui-gold">
+                                    <span>1</span>
+                                    <span>Player_01</span>
+                                    <span>2,450</span>
+                                </div>
+                                <div class="ui-leaderboard-row ui-silver">
+                                    <span>2</span>
+                                    <span>SportsFan</span>
+                                    <span>2,380</span>
+                                </div>
+                                <div class="ui-leaderboard-row ui-bronze">
+                                    <span>3</span>
+                                    <span>BetMax99</span>
+                                    <span>2,290</span>
+                                </div>
+                                <div class="ui-leaderboard-row">
+                                    <span>4</span>
+                                    <span>Lucky7</span>
+                                    <span>2,150</span>
+                                </div>
+                                <div class="ui-leaderboard-row">
+                                    <span>5</span>
+                                    <span>ProBettor</span>
+                                    <span>2,080</span>
+                                </div>
+                            </div>
+                            <div class="ui-timer">
+                                <span>⏱️ ENDS IN: 2H 45M</span>
+                            </div>
+                        </div>
+                        <div class="tournament-overlay"></div>
+                    </div>
+                    <div class="tournament-content">
+                        <h3 class="tournament-title">BMA TOURNAMENT</h3>
+                        <p class="tournament-subtitle">DAILY BETTING CONTESTS</p>
+                        <p class="tournament-description">
+                            Transform traditional sports betting into engaging tournament-style competitions.
+                            From $5 to $5,000 entry points with guaranteed prize pools.
+                        </p>
+                        <div class="tournament-features">
+                            <div class="feature">✓ Multi-Sport Coverage</div>
+                            <div class="feature">✓ Real-Time Leaderboards</div>
+                            <div class="feature">✓ Guaranteed Rake</div>
+                            <div class="feature">✓ White-Label Ready</div>
+                        </div>
+                        <a href="tournament.html" class="btn-tournament">LEARN MORE →</a>
+                    </div>
+                </div>
+
+                <!-- Platform Capabilities -->
+                <div class="capabilities-grid">
+                    <div class="capability-card">
+                        <span class="capability-icon">⚡</span>
+                        <h4>API Integration</h4>
+                        <p>Seamless integration with existing sportsbook infrastructure</p>
+                    </div>
+                    <div class="capability-card">
+                        <span class="capability-icon">📊</span>
+                        <h4>Data Analytics</h4>
+                        <p>Real-time insights and player behavior tracking</p>
+                    </div>
+                    <div class="capability-card">
+                        <span class="capability-icon">🔐</span>
+                        <h4>Security First</h4>
+                        <p>Enterprise-grade security and compliance</p>
+                    </div>
+                    <div class="capability-card">
+                        <span class="capability-icon">🚀</span>
+                        <h4>Scalable Tech</h4>
+                        <p>Built to handle millions of concurrent users</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+            <!-- Old betting interface content removed - moved to tournament.html -->
+            <div class="game-content-container" style="display: none;">
                 <!-- BMA Tournament -->
                 <div class="game-content active" id="tournament-content">
                     <div class="game-showcase">
@@ -2067,20 +3499,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <div class="game-status live">Live</div>
                             </div>
                             <p class="game-description">
-                                Revolutionary tournament management platform that transforms traditional sports betting into engaging, social competitions. Create, manage, and participate in custom tournaments with real-time leaderboards and dynamic prize pools.
+                                Our flagship tournament management platform transforms traditional sports betting into engaging daily contests. Partners can offer their customers tournament-style competitions with controlled risk, guaranteed rake, and increased engagement across all price points from $5 to $5,000 entry levels.
                             </p>
                             <div class="game-features">
+                                <div class="feature-tag">White-Label Ready</div>
+                                <div class="feature-tag">Revenue Share Model</div>
                                 <div class="feature-tag">Real-time Scoring</div>
-                                <div class="feature-tag">Social Leaderboards</div>
-                                <div class="feature-tag">Custom Tournaments</div>
-                                <div class="feature-tag">Prize Management</div>
+                                <div class="feature-tag">Tournament Management</div>
+                                <div class="feature-tag">Multi-Sport Support</div>
                             </div>
                             <div class="game-actions">
-                                <button class="btn-game-primary" onclick="">
-                                    Download
+                                <button class="btn-game-primary" onclick="openContactPopup('partnership')">
+                                    Partner With Us
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="margin-left: 8px;">
                                         <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
+                                </button>
+                                <button class="btn-game-secondary" onclick="openContactPopup('general')">
+                                    Learn More
                                 </button>
                             </div>
                         </div>
@@ -2149,83 +3585,104 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
     -->
 
-    <!-- Results Section -->
-    <section class="results-section" id="solutions">
-        <div class="results-container">
-            <!-- Left Side - Content with Football Background -->
-            <div class="results-left">
-                <div class="results-content">
-                    <h2>Proven Results</h2>
-                    <p class="results-intro">Our technology delivers measurable business impact for gaming operators worldwide</p>
-                    
-                    <div class="metric-descriptions">
-                        <div class="metric-desc">
-                            <h3>Customer Acquisition</h3>
-                            <p>47% increase in new player acquisition through optimized onboarding and targeted campaigns.</p>
-                        </div>
-                        <div class="metric-desc">
-                            <h3>Monthly Retention</h3>
-                            <p>85% monthly retention rate achieved through personalized player experiences and intelligent rewards.</p>
-                        </div>
-                        <div class="metric-desc">
-                            <h3>Lifetime Value</h3>
-                            <p>132% increase in player lifetime value through data-driven segmentation and customization.</p>
-                        </div>
-                    </div>
+    <!-- Max Value Section -->
+    <section class="max-value-section" id="solutions">
+        <div class="max-value-container">
+            <!-- Header -->
+            <div class="mv-header">
+                <span class="mv-x">✕</span>
+                <h2 class="mv-title">MAX VALUE<br>FOR EVERYONE</h2>
+            </div>
+
+            <div class="mv-grid">
+                <!-- For Bettors -->
+                <div class="mv-box bettors-box">
+                    <h3 class="mv-box-title">For Bettors</h3>
+                    <ul class="mv-list">
+                        <li>Controlled Risk</li>
+                        <li>Betting Competitions</li>
+                        <li>Strategy of "Confidence"</li>
+                        <li>Endless Learning</li>
+                        <li>Private Betting Contests for Friends</li>
+                    </ul>
+                </div>
+
+                <!-- For Partners -->
+                <div class="mv-box partners-box">
+                    <h3 class="mv-box-title">For Partners</h3>
+                    <ul class="mv-list">
+                        <li>Guaranteed Rake</li>
+                        <li>Customer Acquisition + Loyalty</li>
+                        <li>Cross-Sell Opportunities</li>
+                        <li>More Action & Data Intelligence for Betting Trends</li>
+                        <li>Engage & Educate</li>
+                    </ul>
                 </div>
             </div>
-            
-            <!-- Right Side - KPI Visualization -->
-            <div class="results-right">
-                <div class="play-field">
-                    <!-- Center QB Logo -->
-                    <div class="quarterback">
-                        <img src="Assets/Bet Max Action-Full Lockup-600.png" alt="BMA">
+
+            <!-- Competitive Advantage Box -->
+            <div class="mv-advantage">
+                    <h3 class="advantage-title">Competitive Advantage</h3>
+                    <p class="advantage-subtitle">An Investment in Bet Max Action is an investment in Innovation!</p>
+                    <p class="advantage-text">
+                        A product uniquely positioned to capture a new generation of bettors through disruptive innovation to create a differential and valuable first-mover advantage for your organization.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BMA Partnership Section -->
+    <section class="partnership-section" id="partnership">
+        <div class="container">
+            <div class="partnership-header">
+                <span class="partnership-x">✕</span>
+                <h2 class="partnership-title">BMA<br>PARTNERSHIP</h2>
+            </div>
+
+            <div class="partnership-content">
+                <p class="partnership-intro">
+                    With the flexibility to operate as DFS or paid contests, Bet Max Action's appeal speaks for a wide array of potential industries, marketing efforts, and sports networks. BMA is the ultimate solution to keep fans engaged while they'll be actively watching and coming back for more!
+                </p>
+
+                <div class="partnership-leagues">
+                    <div class="league-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/National_Football_League_logo.svg/1200px-National_Football_League_logo.svg.png" alt="NFL" class="league-img">
                     </div>
-                    
-                    <!-- KPI Player Boxes -->
-                    <div class="player-box player-1">
-                        <div class="player-stats">
-                            <div class="stat-number">+47%</div>
-                            <div class="stat-label">CUSTOMER ACQUISITION</div>
-                        </div>
+                    <div class="league-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/03/National_Basketball_Association_logo.svg/1200px-National_Basketball_Association_logo.svg.png" alt="NBA" class="league-img">
                     </div>
-                    
-                    <div class="player-box player-2">
-                        <div class="player-stats">
-                            <div class="stat-number">85%</div>
-                            <div class="stat-label">MONTHLY RETENTION</div>
-                        </div>
+                    <div class="league-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Major_League_Baseball_logo.svg/1200px-Major_League_Baseball_logo.svg.png" alt="MLB" class="league-img">
                     </div>
-                    
-                    <div class="player-box player-3">
-                        <div class="player-stats">
-                            <div class="stat-number">+132%</div>
-                            <div class="stat-label">LIFETIME VALUE</div>
-                        </div>
+                    <div class="league-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3a/05_NHL_Shield.svg/1200px-05_NHL_Shield.svg.png" alt="NHL" class="league-img">
                     </div>
-                    
-                    <!-- Route Lines -->
-                    <svg class="route-svg" width="100%" height="100%" style="position: absolute; top: 0; left: 0; z-index: 3;">
-                        <!-- Center QB is at 50%, 50% -->
-                        <!-- Top player is at 50%, 50px from top -->
-                        <line x1="50%" y1="50%" x2="50%" y2="100" stroke="black" stroke-width="6" stroke-linecap="round"/>
-                        <!-- Bottom left player is at 50px from left, 80px from bottom -->
-                        <line x1="50%" y1="50%" x2="130" y2="85%" stroke="black" stroke-width="6" stroke-linecap="round"/>
-                        <!-- Bottom right player is at 50px from right, 80px from bottom -->
-                        <line x1="50%" y1="50%" x2="85%" y2="85%" stroke="black" stroke-width="6" stroke-linecap="round"/>
-                    </svg>
-                    
-                    <!-- Yellow X Markers -->
-                    <div class="x-marker" style="top: 10%; left: 15%;">✕</div>
-                    <div class="x-marker" style="top: 20%; right: 15%;">✕</div>
-                    <div class="x-marker" style="bottom: 20%; left: 20%;">✕</div>
-                    <div class="x-marker" style="bottom: 15%; right: 20%;">✕</div>
-                    <div class="x-marker" style="top: 40%; left: 80%;">✕</div>
-                    
-                    <!-- Red Movement Circles -->
-                    <div class="move-circle" style="top: 15%; right: 25%; width: 100px; height: 100px;"></div>
-                    <div class="move-circle" style="bottom: 25%; left: 10%; width: 80px; height: 80px;"></div>
+                    <div class="league-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/NCAA_logo.svg/1200px-NCAA_logo.svg.png" alt="NCAA" class="league-img">
+                    </div>
+                    <div class="league-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/UFC_Logo.svg/1200px-UFC_Logo.svg.png" alt="UFC" class="league-img">
+                    </div>
+                </div>
+
+                <p class="partnership-description">
+                    For Sports Operators, BMA's tournament-style fusion of DFS with the traditional sportsbook is uniquely positioned to provide a first-mover advantage as regulated operators jockey for market share. Improved user experiences and more betting formats offer a bigger pool of players (both highly skilled players and more recreational bettors) looking to satisfy their entertainment needs. This will ensure all the exact pit of innovation and evolution that operators need to increase retention, reduce churn and help pivot strategies from initial customer acquisition costs.
+                </p>
+
+                <div class="partnership-benefits">
+                    <div class="benefit-item">
+                        <span class="benefit-icon">✓</span>
+                        <span class="benefit-text">Integration costs: Revenue Share % Split</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">✓</span>
+                        <span class="benefit-text">Going Global with entry into international markets</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">✓</span>
+                        <span class="benefit-text">Value in Niche/Strength: Depth added with a dedicated team operating in key roles: mobile and web app development, product marketing, IT infrastructure and edge security, strategic communications, QA/Dev, and business development</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2236,20 +3693,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="container">
             <div class="tech-grid">
                 <div class="tech-content">
-                    <h2>Built for Enterprise Scale</h2>
-                    <p>Our technology stack is engineered for the demands of modern gaming operators, handling millions of transactions daily while maintaining sub-second response times and 99.9% uptime.</p>
+                    <h2>ENTERPRISE-READY TECHNOLOGY</h2>
+                    <p>Built to handle the demands of tier-1 operators. Our platform processes millions of tournament entries daily with guaranteed uptime and scalability for peak sports seasons.</p>
                     <div class="tech-specs">
                         <div class="spec-item">
-                            <h4>API-First Architecture</h4>
-                            <p>RESTful APIs with comprehensive documentation for seamless integration with existing systems and third-party providers.</p>
+                            <h4>TURNKEY INTEGRATION</h4>
+                            <p>White-label solution ready to deploy in weeks, not months. Full API documentation and dedicated integration support included.</p>
                         </div>
                         <div class="spec-item">
-                            <h4>Cloud Infrastructure</h4>
-                            <p>Auto-scaling AWS infrastructure with multi-region deployment, disaster recovery, and guaranteed 99.9% SLA.</p>
+                            <h4>REVENUE SHARE MODEL</h4>
+                            <p>No upfront costs. Pure revenue share model aligns our success with yours. Integration costs covered through partnership.</p>
                         </div>
                         <div class="spec-item">
-                            <h4>Security & Compliance</h4>
-                            <p>SOC 2 Type II certified with PCI DSS compliance, advanced fraud detection, and comprehensive audit trails.</p>
+                            <h4>PROVEN SCALE</h4>
+                            <p>Battle-tested platform handling 100K+ daily active users. Built for NFL Sunday peak loads and March Madness surge capacity.</p>
                         </div>
                     </div>
                 </div>
@@ -2266,12 +3723,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </section>
 
-    <!-- Clients Section -->
-    <section class="clients" id="clients">
+    <!-- Clients Section - Hidden for now -->
+    <!-- <section class="clients" id="clients">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Game Changers Choose BMA</h2>
-                <p class="section-subtitle">The operators making serious money run on our platform</p>
+                <h2 class="section-title">TRUSTED BY INDUSTRY LEADERS</h2>
+                <p class="section-subtitle">Join the operators revolutionizing sports betting with tournament-style gaming</p>
             </div>
             <div class="client-logos">
                 <div class="client-logo">Major Casino Group</div>
@@ -2282,14 +3739,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="client-logo">Sports Platform</div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- CTA Section -->
     <section class="cta-section" id="demo">
         <div class="container">
-            <h2>Ready to Transform Your Gaming Platform?</h2>
-            <p>Schedule a personalized demo and discover how Bet Max Action's enterprise solutions can drive growth for your operation.</p>
-            <a href="#" class="btn-primary" onclick="openContactPopup()">Schedule Your Demo</a>
+            <h2>MORE ACTION. MORE REVENUE.</h2>
+            <p>Join the operators who are already seeing 47% increase in customer acquisition and 85% monthly retention with BMA Tournament Platform.</p>
+            <a href="#" class="btn-primary" onclick="openContactPopup('partnership')">BECOME A PARTNER</a>
         </div>
     </section>
 
@@ -2297,43 +3754,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <footer class="footer" id="contact">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Solutions</h3>
-                    <ul>
-                        <li><a href="#sports">Sports Gaming Platform</a></li>
-                        <li><a href="#loyalty">Casino Loyalty Technology</a></li>
-                        <li><a href="#gamification">Gamification Suite</a></li>
-                        <li><a href="#api">API Documentation</a></li>
-                    </ul>
+                <div class="footer-brand">
+                    <img src="Assets/Bet Max Action-Full Lockup-600.png" alt="Bet Max Action" class="footer-logo">
+                    <p class="footer-tagline">MORE ACTION. MORE REVENUE.</p>
                 </div>
-                <div class="footer-section">
-                    <h3>Company</h3>
-                    <ul>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#team">Leadership Team</a></li>
-                        <li><a href="#careers">Careers</a></li>
-                        <li><a href="#news">News & Press</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="#docs">Documentation</a></li>
-                        <li><a href="#case-studies">Case Studies</a></li>
-                        <li><a href="#whitepapers">Whitepapers</a></li>
-                        <li><a href="#support">Support</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>Enterprise Sales:<br>
-                    <a href="mailto:sales@betmaxaction.com">sales@betmaxaction.com</a></p>
-                    <p>Technical Support:<br>
-                    <a href="mailto:support@betmaxaction.com">support@betmaxaction.com</a></p>
+                <div class="footer-contact">
+                    <div class="footer-email">
+                        <p><a href="mailto:info@betmaxaction.com">info@betmaxaction.com</a></p>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Bet Max Action. All rights reserved. | Privacy Policy | Terms of Service</p>
+                <p>&copy; 2025 Bet Max Action. All rights reserved. | <a href="#" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">Terms & Conditions</a></p>
             </div>
         </div>
     </footer>
@@ -2589,6 +4021,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             if (e.key === 'Escape') {
                 closeContactPopup();
             }
+        });
+
+        // Intersection Observer for league logo animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add the fade-in class to trigger animation
+                        entry.target.classList.add('fade-in');
+                        // Stop observing this element
+                        logoObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            // Observe all league logos
+            document.querySelectorAll('.league-logo').forEach(logo => {
+                // Remove the fade-in class initially
+                logo.classList.remove('fade-in');
+                logoObserver.observe(logo);
+            });
+
         });
 
     </script>

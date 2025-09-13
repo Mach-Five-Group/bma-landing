@@ -1,5 +1,10 @@
-#Claude
+# Claude and Screenshots
 CLAUDE.md
+Screenshot*.png
+Screenshot*.jpg
+Screenshot*.jpeg
+# Only ignore screenshots in root directory, not Assets folder
+/Screenshot*
 
 # Logs
 logs
