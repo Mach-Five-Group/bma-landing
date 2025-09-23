@@ -3862,7 +3862,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 padding: 1.5rem;
             }
             .vertical-card {
-                padding: 1rem;
+                padding: 1rem 1rem 3rem 1rem;
                 min-height: 140px;
             }
             .vertical-icon {
@@ -3874,6 +3874,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }
             .vertical-card h4 {
                 font-size: 0.9rem;
+                padding-right: 0;
+                margin-bottom: 0.5rem;
+            }
+            .vertical-card::after {
+                bottom: 0.5rem;
+                width: 20px;
+                height: 20px;
+                font-size: 14px;
             }
             .vertical-details-list {
                 grid-template-columns: 1fr;
@@ -4050,6 +4058,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 grid-template-columns: 1fr;
                 gap: 0.75rem;
                 padding: 1rem;
+            }
+            .partnership-verticals {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+                padding: 1rem;
+            }
+            .vertical-card {
+                padding: 1rem 1rem 3.5rem 1rem;
+                min-height: 150px;
+            }
+            .vertical-card h4 {
+                font-size: 0.85rem;
+            }
+            .vertical-card::after {
+                bottom: 0.75rem;
             }
 
             .league-logo {
