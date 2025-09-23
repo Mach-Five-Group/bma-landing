@@ -2508,6 +2508,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             border: 2px solid var(--bma-green);
         }
 
+        /* Keep existing league-logo styles for backward compatibility */
         .league-logo {
             background: rgba(255, 255, 255, 0.95);
             border: 2px solid var(--bma-yellow);
@@ -2521,6 +2522,185 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             height: 120px;
             opacity: 0;
             transform: translateY(20px);
+        }
+
+        /* New vertical cards styles */
+        .partnership-verticals {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+            margin: 4rem 0;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            border: 2px solid var(--bma-green);
+        }
+        .vertical-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem 1rem 2.5rem 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            min-height: 160px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .vertical-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--bma-green);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(46, 139, 87, 0.2);
+        }
+        .vertical-card.active {
+            background: rgba(46, 139, 87, 0.2);
+            border-color: var(--bma-green);
+            box-shadow: 0 0 20px rgba(46, 139, 87, 0.3);
+        }
+        .vertical-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            height: 48px;
+        }
+        .vertical-icon svg {
+            width: 40px;
+            height: 40px;
+        }
+        .vertical-card h4 {
+            color: var(--bma-white);
+            font-size: 0.95rem;
+            margin: 0;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+        }
+        .vertical-card::after {
+            content: "+";
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--bma-green);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            line-height: 0;
+            font-family: monospace;
+            text-align: center;
+            padding: 0;
+        }
+        .vertical-card.active::after {
+            content: "−";
+            background: var(--bma-yellow);
+            color: var(--bma-black);
+        }
+        .vertical-card:hover::after {
+            background: var(--bma-yellow);
+            color: var(--bma-black);
+            transform: translateX(-50%) scale(1.1);
+        }
+        .vertical-toggle {
+            display: none; /* Remove the plus button */
+        }
+
+        /* Expandable details section below the cards */
+        .vertical-details-container {
+            grid-column: 1 / -1;
+            margin-top: 2rem;
+            display: none;
+        }
+        .vertical-details-container.show {
+            display: block;
+            animation: slideDown 0.4s ease;
+        }
+        .vertical-details-content {
+            background: rgba(46, 139, 87, 0.1);
+            border: 2px solid var(--bma-green);
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+        }
+        .vertical-details-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .vertical-details-title {
+            color: var(--bma-green);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        .vertical-details-close {
+            background: var(--bma-green);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+        .vertical-details-close:hover {
+            background: var(--bma-yellow);
+            color: var(--bma-black);
+            transform: rotate(90deg);
+        }
+        .vertical-details-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .vertical-details-list li {
+            color: var(--bma-white);
+            font-size: 1rem;
+            padding: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        .vertical-details-list li:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+        .vertical-details-list li:before {
+            content: "▸";
+            position: absolute;
+            left: 0.5rem;
+            color: var(--bma-yellow);
+        }
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .league-logo.fade-in {
@@ -3676,6 +3856,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 gap: 1rem;
                 padding: 1.5rem;
             }
+            .partnership-verticals {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                padding: 1.5rem;
+            }
+            .vertical-card {
+                padding: 1rem;
+                min-height: 120px;
+            }
+            .vertical-icon {
+                height: 40px;
+            }
+            .vertical-icon svg {
+                width: 32px;
+                height: 32px;
+            }
+            .vertical-card h4 {
+                font-size: 0.9rem;
+            }
+            .vertical-details-list {
+                grid-template-columns: 1fr;
+            }
+            .vertical-details-content {
+                padding: 1.5rem;
+            }
 
             .league-logo {
                 height: 90px;
@@ -3946,6 +4151,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 grid-template-columns: repeat(3, 1fr);
                 gap: 1.5rem;
             }
+            .partnership-verticals {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
 
             .tech-feature-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -4005,7 +4214,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="hero-container">
             <div class="hero-content">
                 <h1 class="hero-title">Enterprise Gaming Technology Solutions</h1>
-                <p class="hero-description">We power the world's leading casinos and sportsbooks with cutting-edge gaming technology, loyalty platforms, and gamification solutions designed for enterprise scale.</p>
+                <p class="hero-description">We power the world's leading gaming and entertainment platforms across multiple verticals with cutting-edge technology, loyalty systems, and gamification solutions designed for enterprise scale.</p>
                 <div class="hero-actions">
                     <a href="#products" class="btn-primary">Explore Solutions</a>
                     <a href="#" class="btn-secondary" onclick="openContactPopup('partnership')">Partner With Us</a>
@@ -4104,7 +4313,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </svg>
                         </div>
                         <h4>API Integration</h4>
-                        <p>Seamless integration with existing sportsbook infrastructure</p>
+                        <p>Seamless integration into partner platform and tech stack</p>
                     </div>
                     <div class="capability-card">
                         <div class="capability-icon">
@@ -4314,9 +4523,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="mv-grid">
                 <!-- For Bettors -->
                 <div class="mv-box bettors-box">
-                    <h3 class="mv-box-title">For Bettors</h3>
+                    <h3 class="mv-box-title">For End-Users</h3>
                     <ul class="mv-list">
-                        <li>Controlled Risk</li>
+                        <li>Your Play, Your Price (From F2P and Up)</li>
                         <li>Betting Competitions</li>
                         <li>Strategy of "Confidence"</li>
                         <li>Endless Learning</li>
@@ -4328,7 +4537,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="mv-box partners-box">
                     <h3 class="mv-box-title">For Partners</h3>
                     <ul class="mv-list">
-                        <li>Guaranteed Rake</li>
+                        <li>Easily transition from F2P to Paid Tournaments</li>
                         <li>Customer Acquisition + Loyalty</li>
                         <li>Cross-Sell Opportunities</li>
                         <li>More Action & Data Intelligence for Betting Trends</li>
@@ -4359,27 +4568,93 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             <div class="partnership-content">
                 <p class="partnership-intro">
-                    With the flexibility to operate as DFS or paid contests, Bet Max Action's appeal speaks for a wide array of potential industries, marketing efforts, and sports networks. BMA is the ultimate solution to keep fans engaged while they'll be actively watching and coming back for more!
+                    With the flexibility to operate as DFS or paid contests, Bet Max Action's appeal speaks for a wide array of potential industries, marketing efforts, sports media, and entertainment. BMA is the ultimate solution to keep fans engaged while they'll be actively watching and coming back for more!
                 </p>
 
-                <div class="partnership-leagues">
-                    <div class="league-logo">
-                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/National_Football_League_logo.svg/1200px-National_Football_League_logo.svg.png" alt="NFL" class="league-img">
+                <div class="partnership-verticals" id="verticals-grid">
+                    <!-- Leagues & Teams -->
+                    <div class="vertical-card" onclick="showVerticalDetails('leagues')">
+                        <div class="vertical-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24 2L4 14V34C4 36 5 38 7 39L24 46L41 39C43 38 44 36 44 34V14L24 2Z" stroke="#2E8B57" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M24 2V46" stroke="#2E8B57" stroke-width="2"/>
+                                <path d="M44 14L24 26L4 14" stroke="#2E8B57" stroke-width="2"/>
+                                <circle cx="24" cy="26" r="4" fill="#FFD700"/>
+                            </svg>
+                        </div>
+                        <h4>Leagues & Teams</h4>
                     </div>
-                    <div class="league-logo">
-                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/03/National_Basketball_Association_logo.svg/1200px-National_Basketball_Association_logo.svg.png" alt="NBA" class="league-img">
+
+                    <!-- Entertainment Venues -->
+                    <div class="vertical-card" onclick="showVerticalDetails('entertainment')">
+                        <div class="vertical-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="8" y="12" width="32" height="28" stroke="#2E8B57" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 8V12" stroke="#2E8B57" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M32 8V12" stroke="#2E8B57" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M8 20H40" stroke="#2E8B57" stroke-width="2"/>
+                                <circle cx="24" cy="30" r="3" fill="#FFD700"/>
+                            </svg>
+                        </div>
+                        <h4>Entertainment Venues</h4>
                     </div>
-                    <div class="league-logo">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Major_League_Baseball_logo.svg/1200px-Major_League_Baseball_logo.svg.png" alt="MLB" class="league-img">
+
+                    <!-- Casinos & iGaming -->
+                    <div class="vertical-card" onclick="showVerticalDetails('casinos')">
+                        <div class="vertical-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="10" width="28" height="28" rx="4" stroke="#2E8B57" stroke-width="2"/>
+                                <circle cx="18" cy="18" r="2" fill="#FFD700"/>
+                                <circle cx="30" cy="30" r="2" fill="#FFD700"/>
+                                <circle cx="18" cy="30" r="2" fill="#2E8B57"/>
+                                <circle cx="30" cy="18" r="2" fill="#2E8B57"/>
+                                <circle cx="24" cy="24" r="2" fill="#DC143C"/>
+                            </svg>
+                        </div>
+                        <h4>Casinos & iGaming</h4>
                     </div>
-                    <div class="league-logo">
-                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3a/05_NHL_Shield.svg/1200px-05_NHL_Shield.svg.png" alt="NHL" class="league-img">
+
+                    <!-- eSports -->
+                    <div class="vertical-card" onclick="showVerticalDetails('esports')">
+                        <div class="vertical-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 14H32C36 14 40 18 40 22V30C40 34 36 38 32 38H16C12 38 8 34 8 30V22C8 18 12 14 16 14Z" stroke="#2E8B57" stroke-width="2"/>
+                                <path d="M20 8V14" stroke="#2E8B57" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M28 8V14" stroke="#2E8B57" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="18" cy="24" r="2" fill="#FFD700"/>
+                                <circle cx="30" cy="28" r="2" fill="#FFD700"/>
+                                <path d="M14 26H22" stroke="#DC143C" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M18 22V30" stroke="#DC143C" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h4>eSports</h4>
                     </div>
-                    <div class="league-logo">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/NCAA_logo.svg/1200px-NCAA_logo.svg.png" alt="NCAA" class="league-img">
+
+                    <!-- Media Partners -->
+                    <div class="vertical-card" onclick="showVerticalDetails('media')">
+                        <div class="vertical-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="6" y="10" width="36" height="24" rx="2" stroke="#2E8B57" stroke-width="2"/>
+                                <path d="M42 18L32 24L42 30V18Z" stroke="#2E8B57" stroke-width="2" stroke-linejoin="round"/>
+                                <circle cx="16" cy="22" r="4" fill="#FFD700"/>
+                                <path d="M16 34V38" stroke="#2E8B57" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M32 34V38" stroke="#2E8B57" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h4>Media Partners</h4>
                     </div>
-                    <div class="league-logo">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/UFC_Logo.svg/1200px-UFC_Logo.svg.png" alt="UFC" class="league-img">
+                </div>
+
+                <!-- Details Container (appears below all cards when one is clicked) -->
+                <div class="vertical-details-container" id="vertical-details">
+                    <div class="vertical-details-content">
+                        <div class="vertical-details-header">
+                            <h3 class="vertical-details-title" id="details-title">Select a Category</h3>
+                            <button class="vertical-details-close" onclick="closeVerticalDetails()" aria-label="Close">×</button>
+                        </div>
+                        <ul class="vertical-details-list" id="details-list">
+                            <!-- Content populated dynamically -->
+                        </ul>
                     </div>
                 </div>
 
@@ -4408,22 +4683,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Technology Section -->
     <section class="technology" id="technology">
         <div class="container">
+            <div class="partnership-header">
+                <span class="partnership-x">✕</span>
+                <h2 class="partnership-title">ENTERPRISE-READY<br>TECHNOLOGY</h2>
+            </div>
+            <p class="partnership-intro">Built for enterprise scale and reliability. Our platform architecture delivers seamless performance, scalability, and uptime for peak sports seasons and high-volume events.</p>
             <div class="tech-grid">
                 <div class="tech-content">
-                    <h2>ENTERPRISE-READY TECHNOLOGY</h2>
-                    <p>Built to handle the demands of tier-1 operators. Our platform processes millions of tournament entries daily with guaranteed uptime and scalability for peak sports seasons.</p>
                     <div class="tech-specs">
                         <div class="spec-item">
                             <h4>TURNKEY INTEGRATION</h4>
                             <p>White-label solution ready to deploy in weeks, not months. Full API documentation and dedicated integration support included.</p>
                         </div>
                         <div class="spec-item">
-                            <h4>REVENUE SHARE MODEL</h4>
-                            <p>No upfront costs. Pure revenue share model aligns our success with yours. Integration costs covered through partnership.</p>
+                            <h4>FLEXIBLE PRICING STRUCTURE</h4>
+                            <p>Customizable pricing models to fit your business needs. Choose from revenue share, licensing, or hybrid approaches tailored to your platform and user base.</p>
                         </div>
                         <div class="spec-item">
                             <h4>PROVEN SCALE</h4>
-                            <p>Battle-tested platform handling 100K+ daily active users. Built for NFL Sunday peak loads and March Madness surge capacity.</p>
+                            <p>Built for NFL Sunday peak loads and March Madness surge capacity.</p>
                         </div>
                     </div>
                 </div>
@@ -4431,7 +4709,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="integration-item">Payment Gateways</div>
                     <div class="integration-item">Odds Providers</div>
                     <div class="integration-item">Game Studios</div>
-                    <div class="integration-center">BMA Platform</div>
+                    <div class="integration-center">
+                        <img src="bma-logo-full-color-rgb-1920px@72ppi.png" alt="BMA" style="height: 24px; width: auto; margin-bottom: 8px; display: block; margin-left: auto; margin-right: auto;">
+                        BMA Platform
+                    </div>
                     <div class="integration-item">CRM Systems</div>
                     <div class="integration-item">Analytics</div>
                     <div class="integration-item">Compliance Tools</div>
@@ -4739,6 +5020,105 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         function closeContactPopup() {
             document.getElementById('contactPopup').classList.remove('active');
             document.body.style.overflow = '';
+        }
+
+        // Vertical details data
+        const verticalData = {
+            leagues: {
+                title: 'Leagues & Teams',
+                items: [
+                    'Professional Leagues & Teams',
+                    'Collegiate Athletics',
+                    'Amateur Sports Associations',
+                    'Fantasy Sports Platforms',
+                    'eSports Organizations',
+                    'Youth Sports Organizations'
+                ]
+            },
+            entertainment: {
+                title: 'Entertainment Venues',
+                items: [
+                    'Entertainment Venues & Arenas',
+                    'Music & Live Events',
+                    'Festivals & Cultural Events',
+                    'Hospitality & Travel Partners',
+                    'Retail & Point-of-Sale Integrations',
+                    'Theme Parks & Attractions'
+                ]
+            },
+            casinos: {
+                title: 'Casinos & iGaming',
+                items: [
+                    'Casinos & iGaming Operators',
+                    'Online Sportsbooks',
+                    'Daily Fantasy Operators',
+                    'Lottery & Sweepstakes Providers',
+                    'Payment & Fintech Partners',
+                    'Gaming Technology Providers'
+                ]
+            },
+            esports: {
+                title: 'eSports',
+                items: [
+                    'eSports Organizations',
+                    'Gaming Communities',
+                    'Streaming Platforms',
+                    'Technology Providers',
+                    'Data & Analytics Firms',
+                    'Tournament Organizers'
+                ]
+            },
+            media: {
+                title: 'Media Partners',
+                items: [
+                    'Broadcasters & Media Networks',
+                    'Streaming Platforms',
+                    'Social Platforms & Communities',
+                    'Brand Sponsors & Advertisers',
+                    'Consumer Products & Merchandising',
+                    'Digital Media Publishers'
+                ]
+            }
+        };
+
+        let currentVertical = null;
+
+        function showVerticalDetails(vertical) {
+            const detailsContainer = document.getElementById('vertical-details');
+            const titleElement = document.getElementById('details-title');
+            const listElement = document.getElementById('details-list');
+
+            // If clicking the same vertical, close it
+            if (currentVertical === vertical && detailsContainer.classList.contains('show')) {
+                closeVerticalDetails();
+                return;
+            }
+
+            // Update content
+            const data = verticalData[vertical];
+            titleElement.textContent = data.title;
+            listElement.innerHTML = data.items.map(item => `<li>${item}</li>`).join('');
+
+            // Show the container
+            detailsContainer.classList.add('show');
+            currentVertical = vertical;
+
+            // Highlight the selected card
+            document.querySelectorAll('.vertical-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+        }
+
+        function closeVerticalDetails() {
+            const detailsContainer = document.getElementById('vertical-details');
+            detailsContainer.classList.remove('show');
+            currentVertical = null;
+
+            // Remove active state from all cards
+            document.querySelectorAll('.vertical-card').forEach(card => {
+                card.classList.remove('active');
+            });
         }
 
         function switchTab(tabName) {
