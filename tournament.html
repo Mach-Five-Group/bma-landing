@@ -599,32 +599,78 @@
         }
 
         .mockup-stats {
-            display: flex;
-            justify-content: space-around;
-            gap: 2rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            padding: 0 1rem;
         }
 
         .mockup-stats .stat {
             background: rgba(0, 0, 0, 0.7);
-            padding: 1.5rem;
-            border-radius: 12px;
+            padding: 1rem;
+            border-radius: 8px;
             border: 2px solid var(--bma-green);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
         .mockup-stats .stat-value {
             display: block;
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 900;
             color: var(--bma-white);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
+            height: 2rem;
+            line-height: 2rem;
+            position: relative;
+        }
+
+        .mockup-header {
+            color: var(--bma-yellow);
+            font-size: 1.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            height: 1.5rem;
+            line-height: 1.5rem;
+            overflow: hidden;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        /* Animation with absolute positioning */
+        .fade-text {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .fade-text.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-text.next {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .fade-text.prev {
+            opacity: 0;
+            transform: translateY(-20px);
         }
 
         .mockup-stats .stat-label {
             display: block;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--bma-yellow);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
         }
 
         /* Entry Points */
@@ -635,16 +681,22 @@
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(5, 1fr);
             gap: 2rem;
             margin-top: 3rem;
+        }
+
+        @media (max-width: 1200px) {
+            .pricing-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         .price-card {
             background: rgba(255, 255, 255, 0.05);
             border: 2px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
-            padding: 2rem;
+            padding: 2rem 1.5rem;
             text-align: center;
             transition: all 0.3s ease;
         }
@@ -974,23 +1026,34 @@
             }
 
             .mockup-header {
-                font-size: 1.2rem;
+                font-size: 0.9rem;
+                letter-spacing: 1px;
+                padding: 0 0.5rem;
             }
 
             .mockup-stats {
-                gap: 0.5rem;
+                gap: 0.25rem;
+                padding: 0 0.5rem;
             }
 
-            .stat {
-                padding: 1rem;
+            .mockup-stats .stat {
+                padding: 0.75rem 0.25rem;
+                flex: 1;
+                min-width: 0;
             }
 
-            .stat-value {
-                font-size: 1.5rem;
+            .mockup-stats .stat-value {
+                font-size: 1.1rem;
+                min-height: 1.8rem;
+                word-break: break-word;
             }
 
-            .stat-label {
-                font-size: 0.75rem;
+            .mockup-stats .stat-label {
+                font-size: 0.65rem;
+            }
+
+            .mockup-content {
+                width: 90%;
             }
 
             .steps-grid {
@@ -1333,9 +1396,6 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .pricing-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
     </style>
 </head>
@@ -1382,7 +1442,7 @@
         <div class="container">
             <h1>BMA Tournament Platform</h1>
             <h2>Daily Betting Contests</h2>
-            <p>Transform your sportsbook with tournament-style competitions. Guaranteed rake for operators, controlled risk for players, and engagement across all segments from $5 to $5,000 entry points.</p>
+            <p>Transform your platform with tournament-style competitions. Flexible pricing models for partners, engaging experiences for end-users, and broad appeal across all segments from free-to-play to premium entry points.</p>
             <div class="hero-actions">
                 <a href="#demo" class="btn-primary">See Live Demo</a>
                 <a href="index.html#contact" class="btn-primary" style="background: transparent; border: 2px solid var(--bma-yellow); color: var(--bma-yellow);">Get Started</a>
@@ -1514,19 +1574,21 @@
                         <img src="https://images.unsplash.com/photo-1552072092-7f9b8d63efcb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Platform Dashboard" class="how-image">
                         <div class="how-overlay"></div>
                         <div class="mockup-content">
-                            <div class="mockup-header">BMA TOURNAMENT PLATFORM</div>
+                            <div class="mockup-header">
+                                <span id="tournament-title">WEEKLY BIG BATTLE 🏆</span>
+                            </div>
                             <div class="mockup-stats">
                                 <div class="stat">
-                                    <span class="stat-value">$10K</span>
-                                    <span class="stat-label">Prize Pool</span>
+                                    <div class="stat-value" id="prize-pool">$10K</div>
+                                    <div class="stat-label">Prize Pool</div>
                                 </div>
                                 <div class="stat">
-                                    <span class="stat-value">247</span>
-                                    <span class="stat-label">Players</span>
+                                    <div class="stat-value" id="player-count">247</div>
+                                    <div class="stat-label">Players</div>
                                 </div>
                                 <div class="stat">
-                                    <span class="stat-value">LIVE</span>
-                                    <span class="stat-label">Status</span>
+                                    <div class="stat-value" id="tournament-status">LIVE</div>
+                                    <div class="stat-label">Status</div>
                                 </div>
                             </div>
                         </div>
@@ -1544,7 +1606,7 @@
                 <h2 class="section-title">TOURNAMENT<br>ENTRY POINTS</h2>
             </div>
             <p style="text-align: center; color: rgba(255, 255, 255, 0.8); max-width: 600px; margin: 0 auto 3rem;">
-                More action for every budget. From casual players to high rollers, we have tournaments for everyone.
+                Flexible entry points designed for maximum engagement. Multiple tiers provide accessibility across all user segments.
             </p>
             <div class="pricing-grid">
                 <div class="price-card">
@@ -1657,6 +1719,126 @@
             // If the index page has this function, redirect to index with contact open
             window.location.href = 'index.html#contact';
         }
+
+        // Tournament rotation data - multi-sport tournament names
+        const tournaments = [
+            {
+                title: 'WEEKLY BIG BATTLE 🏆',
+                prizePool: '$10K',
+                players: '247',
+                status: 'LIVE'
+            },
+            {
+                title: 'ROOKIE RUMBLE 🎯',
+                prizePool: '$500',
+                players: '89',
+                status: 'LIVE'
+            },
+            {
+                title: 'CHAMPION CHASE 💎',
+                prizePool: '$100K',
+                players: '178',
+                status: 'SOON'
+            },
+            {
+                title: 'HOOPS POWER PLAY 🔥',
+                prizePool: '$5K',
+                players: '195',
+                status: 'LIVE'
+            },
+            {
+                title: 'SPRING SLAM SERIES ⭐',
+                prizePool: '$500K',
+                players: '73',
+                status: 'LIVE'
+            },
+            {
+                title: 'WEEKLY DOUBLE ⚡',
+                prizePool: '$2.5K',
+                players: '163',
+                status: 'ENDED'
+            },
+            {
+                title: 'PRIME PICKS 🎲',
+                prizePool: '$50K',
+                players: '412',
+                status: 'LIVE'
+            },
+            {
+                title: 'STARTER STAKES 🚀',
+                prizePool: '$250',
+                players: '98',
+                status: 'SOON'
+            },
+            {
+                title: 'WEEKEND BLITZ 🏅',
+                prizePool: '$25K',
+                players: '324',
+                status: 'LIVE'
+            }
+        ];
+
+        let currentTournamentIndex = 0;
+
+        function updateTournament() {
+            const titleElement = document.getElementById('tournament-title');
+            const prizeElement = document.getElementById('prize-pool');
+            const playerElement = document.getElementById('player-count');
+            const statusElement = document.getElementById('tournament-status');
+
+            // Simple fade
+            titleElement.style.opacity = '0';
+            prizeElement.style.opacity = '0';
+            playerElement.style.opacity = '0';
+            statusElement.style.opacity = '0';
+
+            setTimeout(() => {
+                // Update content
+                currentTournamentIndex = (currentTournamentIndex + 1) % tournaments.length;
+                const tournament = tournaments[currentTournamentIndex];
+
+                titleElement.textContent = tournament.title;
+                prizeElement.textContent = tournament.prizePool;
+                playerElement.textContent = tournament.players;
+                statusElement.textContent = tournament.status;
+
+                // Update status color
+                if (tournament.status === 'LIVE') {
+                    statusElement.style.color = '#2E8B57';
+                } else if (tournament.status === 'SOON') {
+                    statusElement.style.color = '#FFD700';
+                } else {
+                    statusElement.style.color = '#888';
+                }
+
+                // Fade back in
+                titleElement.style.opacity = '1';
+                prizeElement.style.opacity = '1';
+                playerElement.style.opacity = '1';
+                statusElement.style.opacity = '1';
+            }, 400);
+        }
+
+        // Start rotation when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add transitions to all elements
+            const elements = ['tournament-title', 'prize-pool', 'player-count', 'tournament-status'];
+            elements.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.style.transition = 'opacity 0.4s ease';
+                }
+            });
+
+            // Set initial status color
+            const statusElement = document.getElementById('tournament-status');
+            if (statusElement) {
+                statusElement.style.color = '#2E8B57';
+            }
+
+            // Start rotating
+            setInterval(updateTournament, 4000);
+        });
     </script>
 </body>
 </html>
