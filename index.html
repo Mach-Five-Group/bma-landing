@@ -5155,6 +5155,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 card.classList.remove('active');
             });
             event.currentTarget.classList.add('active');
+
+            // Scroll to details container on mobile and tablet
+            setTimeout(() => {
+                if (window.innerWidth <= 1024) {
+                    detailsContainer.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }, 100); // Small delay to allow the container to render
         }
 
         function closeVerticalDetails() {
