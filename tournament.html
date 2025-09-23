@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta name="generator" content="Hugo 0.103.0" />
-    <title>BMA Tournament Platform - Daily Betting Contests</title>
+    <title>BMA Tournament Platform - Play. Compete. Engage.</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=2, minimum-scale=1, width=device-width, height=device-height"/>
 
@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <meta property="og:title" content="BMA Tournament Platform - Daily Betting Contests">
+    <meta property="og:title" content="BMA Tournament Platform - Play. Compete. Engage.">
     <meta property="og:site_name" content="Bet Max Action">
     <meta property="og:url" content="https://www.BetMaxAction.com/tournament.html">
     <meta property="og:description" content="Revolutionary tournament-style sports betting platform with guaranteed rake for operators and controlled risk for players.">
@@ -179,10 +179,40 @@
 
         /* Hero Section */
         .hero {
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, var(--bma-dark-200) 0%, var(--bma-dark-400) 100%);
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, var(--bma-green) 0%, var(--bma-black) 100%);
+            color: white;
             text-align: center;
+            position: relative;
+            overflow: hidden;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=3267') center/cover;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(46, 139, 87, 0.9) 0%, rgba(0, 0, 0, 0.8) 100%);
+            z-index: 1;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
@@ -200,6 +230,7 @@
             color: var(--bma-yellow);
             margin-bottom: 1.5rem;
             text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
         }
 
         .hero p {
@@ -491,6 +522,32 @@
             font-size: 1.1rem;
             margin-bottom: 2rem;
             line-height: 1.6;
+        }
+
+        .tournament-dollars {
+            color: var(--bma-white);
+            position: relative;
+            display: inline-block;
+        }
+
+        .tournament-dollars::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--bma-green);
+            animation: underlineExpand 0.5s ease 0.5s forwards;
+        }
+
+        @keyframes underlineExpand {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
         }
 
         .how-steps {
@@ -1421,7 +1478,6 @@
             </button>
 
             <ul class="nav-menu" id="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
                 <li class="dropdown">
                     <a href="#" class="nav-link">Products ▼</a>
                     <ul class="dropdown-menu">
@@ -1441,7 +1497,7 @@
     <section class="hero">
         <div class="container">
             <h1>BMA Tournament Platform</h1>
-            <h2>Daily Betting Contests</h2>
+            <h2>Play. Compete. Engage.</h2>
             <p>Transform your platform with tournament-style competitions. Flexible pricing models for partners, engaging experiences for end-users, and broad appeal across all segments from free-to-play to premium entry points.</p>
             <div class="hero-actions">
                 <a href="#demo" class="btn-primary">See Live Demo</a>
@@ -1540,7 +1596,7 @@
             <div class="how-grid">
                 <div class="how-left">
                     <p class="how-description">
-                        At the end of each contest, standings and payouts will be determined by highest to lowest $TD of each entry:
+                        At the end of each contest, standings and payouts will be determined by highest to lowest $TD <span class="tournament-dollars">(Tournament Dollars)</span> of each entry:
                     </p>
                     <div class="how-steps">
                         <div class="how-step">
