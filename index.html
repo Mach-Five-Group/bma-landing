@@ -2578,6 +2578,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 0.75rem;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .vertical-card:nth-child(1) h4 { animation-delay: 0.1s; }
+        .vertical-card:nth-child(2) h4 { animation-delay: 0.2s; }
+        .vertical-card:nth-child(3) h4 { animation-delay: 0.3s; }
+        .vertical-card:nth-child(4) h4 { animation-delay: 0.4s; }
+        .vertical-card:nth-child(5) h4 { animation-delay: 0.5s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         .vertical-card::after {
             content: "+";
@@ -3162,10 +3178,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .popup-header {
-            background: linear-gradient(135deg, var(--bma-green) 0%, var(--bma-dark-400) 100%);
+            background: url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=3267') center/cover;
             padding: 2rem;
             text-align: center;
             position: relative;
+            overflow: hidden;
+        }
+
+        .popup-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(46, 139, 87, 0.9) 0%, rgba(255, 215, 0, 0.5) 100%);
+            z-index: 0;
+        }
+
+        .popup-header > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .popup-logo {
+            width: 120px;
+            height: auto;
+            margin: 0 auto 1rem auto;
+            display: block;
         }
 
         .popup-close {
@@ -4238,8 +4278,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <h1 class="hero-title">Enterprise Gaming Technology Solutions</h1>
                 <p class="hero-description">We power the world's leading gaming and entertainment platforms across multiple verticals with cutting-edge technology, loyalty systems, and gamification solutions designed for enterprise scale.</p>
                 <div class="hero-actions">
-                    <a href="#products" class="btn-primary">Explore Solutions</a>
-                    <a href="#" class="btn-secondary" onclick="openContactPopup('partnership')">Partner With Us</a>
+                    <a href="tournament.html" class="btn-primary">BMA Tournament</a>
+                    <a href="#" class="btn-secondary" onclick="openContactPopup('general')">Contact</a>
                 </div>
             </div>
             <div class="hero-right">
@@ -4254,7 +4294,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="container">
             <div class="platform-header">
                 <span class="section-x">✕</span>
-                <h2 class="section-title">PLATFORM<br>PORTFOLIO</h2>
+                <h2 class="section-title">FEATURED<br>GAMES</h2>
             </div>
 
             <div class="platform-showcase">
@@ -4305,16 +4345,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <div class="tournament-overlay"></div>
                     </div>
                     <div class="tournament-content">
-                        <h3 class="tournament-title">BMA TOURNAMENT</h3>
+                        <h3 class="tournament-title">
+                            <img src="bma-logo-full-color-rgb-1920px@72ppi.png" alt="BMA" style="height: 40px; width: auto; vertical-align: middle; margin-right: 15px;">
+                            BMA TOURNAMENT
+                        </h3>
                         <p class="tournament-subtitle">DAILY BETTING CONTESTS</p>
                         <p class="tournament-description">
                             Transform traditional sports betting into engaging tournament-style competitions.
-                            From $5 to $5,000 entry points with guaranteed prize pools.
                         </p>
                         <div class="tournament-features">
                             <div class="feature">✓ Multi-Sport Coverage</div>
                             <div class="feature">✓ Real-Time Leaderboards</div>
-                            <div class="feature">✓ Guaranteed Rake</div>
+                            <div class="feature">✓ F2P to Paid Tournaments</div>
                             <div class="feature">✓ White-Label Ready</div>
                         </div>
                         <a href="tournament.html" class="btn-tournament">LEARN MORE →</a>
@@ -4585,7 +4627,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="container">
             <div class="partnership-header">
                 <span class="partnership-x">✕</span>
-                <h2 class="partnership-title">BMA<br>PARTNERSHIP</h2>
+                <h2 class="partnership-title">PARTNERSHIP</h2>
             </div>
 
             <div class="partnership-content">
@@ -4711,15 +4753,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="partnership-benefits">
                     <div class="benefit-item">
                         <span class="benefit-icon">✓</span>
-                        <span class="benefit-text">Integration costs: Revenue Share % Split</span>
+                        <span class="benefit-text">Flexible Partnership Models Tailored to Your Business</span>
                     </div>
                     <div class="benefit-item">
                         <span class="benefit-icon">✓</span>
-                        <span class="benefit-text">Going Global with entry into international markets</span>
+                        <span class="benefit-text">Going Global With Entry Into International Markets 🌍</span>
                     </div>
                     <div class="benefit-item">
                         <span class="benefit-icon">✓</span>
-                        <span class="benefit-text">Value in Niche/Strength: Depth added with a dedicated team operating in key roles: mobile and web app development, product marketing, IT infrastructure and edge security, strategic communications, QA/Dev, and business development</span>
+                        <span class="benefit-text">Depth Added With A Dedicated Team Operating In Key Roles: Mobile and Web App Development, Product Marketing, IT Infrastructure and Edge Security, Strategic Communications, QA/Dev, and Business Development</span>
                     </div>
                 </div>
             </div>
@@ -4746,7 +4788,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <p>Customizable pricing models to fit your business needs. Choose from revenue share, licensing, or hybrid approaches tailored to your platform and user base.</p>
                         </div>
                         <div class="spec-item">
-                            <h4>PROVEN SCALE</h4>
+                            <h4>GAME DAY READY</h4>
                             <p>Built for NFL Sunday peak loads and March Madness surge capacity.</p>
                         </div>
                     </div>
@@ -4819,8 +4861,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="popup-container">
             <div class="popup-header">
                 <button class="popup-close" onclick="closeContactPopup()">&times;</button>
+                <img src="bma-logo-full-color-rgb-1920px@72ppi.png" alt="BMA" class="popup-logo">
                 <h2 class="popup-title">Get In Touch</h2>
-                <p class="popup-subtitle">Let's discuss how we can power your gaming platform</p>
             </div>
             <div class="popup-content">
                 <div class="contact-tabs">
